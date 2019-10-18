@@ -433,6 +433,10 @@
                     <div class="fileDescription small" jsf:rendered="#{!(empty fileMetadata.description)}">
                         <h:outputText id="fileDescNonEmpty" value="#{fileMetadata.description}" rendered="#{!(DatasetPage.editMode == 'FILE' or DatasetPage.editMode == 'CREATE') and !(empty fileMetadata.description)}"/>
                     </div>
+                    
+                      <div class="fileDescription small" jsf:rendered="#{!(empty fileMetadata.activeFrom)}">
+                        <h:outputText id="fileActiveFromNonEmpty" value="#{fileMetadata.activeFrom}" rendered="#{!(DatasetPage.editMode == 'FILE' or DatasetPage.editMode == 'CREATE') and !(empty fileMetadata.activeFrom)}"/>
+                    </div>
 
                     <div class="file-tags-block #{DatasetPage.editMode == 'FILE' or DatasetPage.editMode == 'CREATE' ? 'margin-top-half' : ''}" jsf:rendered="#{!(empty fileMetadata.categories) or !(empty fileMetadata.dataFile.tags)}">
                         <ui:fragment rendered="#{!(empty fileMetadata.categories)}">

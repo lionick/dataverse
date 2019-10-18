@@ -46,6 +46,8 @@ import edu.harvard.iq.dataverse.util.DateUtil;
 import edu.harvard.iq.dataverse.util.StringUtil;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -81,6 +83,10 @@ public class FileMetadata implements Serializable {
     @Expose
     @Column(columnDefinition = "TEXT")
     private String description = "";
+    
+    @Expose
+    @Temporal(TemporalType.DATE)
+    private Date activeFrom;
     
     /**
      * At the FileMetadata level, "restricted" is a historical indication of the
@@ -124,6 +130,7 @@ public class FileMetadata implements Serializable {
         fmd.setDataFile( getDataFile() );
         fmd.setDatasetVersion( getDatasetVersion() );
         fmd.setDescription( getDescription() );
+        fmd.setActiveFrom(getActiveFrom());
         fmd.setLabel( getLabel() );
         fmd.setRestricted( isRestricted() );
         
@@ -164,6 +171,16 @@ public class FileMetadata implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Date getActiveFrom() {
+        return activeFrom;
+    }
+
+    public void setActiveFrom(Date activeFrom) {
+        this.activeFrom = activeFrom;
+    }
+    
+    
 
     public boolean isRestricted() {
         return restricted;
