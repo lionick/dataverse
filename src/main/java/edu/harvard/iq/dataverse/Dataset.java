@@ -329,6 +329,7 @@ public class Dataset extends DvObjectContainer {
                 // yep, these are the new categories:
                 newFm.setCategories(fm.getCategories());
                 newFm.setDescription(fm.getDescription());
+                newFm.setActiveFrom(fm.getActiveFrom());
                 newFm.setLabel(fm.getLabel());
                 newFm.setDirectoryLabel(fm.getDirectoryLabel());
                 newFm.setRestricted(fm.isRestricted());
