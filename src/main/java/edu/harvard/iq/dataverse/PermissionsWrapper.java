@@ -137,6 +137,10 @@ public class PermissionsWrapper implements java.io.Serializable {
     public boolean canViewUnpublishedDataset(DataverseRequest dr, Dataset dataset) {
         return doesSessionUserHaveDataSetPermission(dr, dataset, Permission.ViewUnpublishedDataset);
     }
+
+    public boolean canViewEmbargoedFiles(DataverseRequest dr, Dataset dataset) {
+        return doesSessionUserHaveDataSetPermission(dr, dataset, Permission.ViewEmbargoedFile);
+    }
     
     public boolean canUpdateDataset(DataverseRequest dr, Dataset dataset) {
         return doesSessionUserHaveDataSetPermission(dr, dataset, Permission.EditDataset);

@@ -40,6 +40,7 @@ public enum Permission implements java.io.Serializable {
     // Read
     ViewUnpublishedDataverse(BundleUtil.getStringFromBundle("permission.viewUnpublishedDataverse"), false, Dataverse.class),
     ViewUnpublishedDataset(BundleUtil.getStringFromBundle("permission.viewUnpublishedDataset"), false, Dataset.class),
+    ViewEmbargoedFile(BundleUtil.getStringFromBundle("permission.viewEmbargoedFile"), true, Dataset.class),
     DownloadFile(BundleUtil.getStringFromBundle("permission.downloadFile"), false, DataFile.class),
     // Update
     EditDataverse(BundleUtil.getStringFromBundle("permission.editDataverse"), true, Dataverse.class),

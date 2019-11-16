@@ -55,7 +55,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -127,6 +131,7 @@ import edu.harvard.iq.dataverse.search.SearchUtil;
 import edu.harvard.iq.dataverse.search.SolrClientService;
 import java.util.Comparator;
 import java.util.TimeZone;
+import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
@@ -576,6 +581,7 @@ public class DatasetPage implements java.io.Serializable {
     }
     
     private List<FileMetadata> selectFileMetadatasForDisplay() {
+        List<FileMetadata> retList = null;
         Set<Long> searchResultsIdSet = null;
 
         if (isIndexedVersion()) {
@@ -589,7 +595,7 @@ public class DatasetPage implements java.io.Serializable {
                     && StringUtil.isEmpty(fileAccessFacet)
                     && StringUtil.isEmpty(fileTagsFacet)) {
                 if ((StringUtil.isEmpty(fileSortField) || fileSortField.equals("name")) && StringUtil.isEmpty(fileSortOrder)) {
-                    return workingVersion.getFileMetadatasSorted();
+                    return filterEmbargoedFiles(workingVersion.getFileMetadatasSorted());
                 } else {
                     searchResultsIdSet = null; 
                 }
@@ -602,14 +608,14 @@ public class DatasetPage implements java.io.Serializable {
             // (no facets without solr!)
             if (StringUtil.isEmpty(this.fileLabelSearchTerm)) {
                 if ((StringUtil.isEmpty(fileSortField) || fileSortField.equals("name")) && StringUtil.isEmpty(fileSortOrder)) {
-                    return workingVersion.getFileMetadatasSorted();
+                    return filterEmbargoedFiles(workingVersion.getFileMetadatasSorted());
                 }
             } else {
                 searchResultsIdSet = getFileIdsInVersionFromDb(workingVersion.getId(), this.fileLabelSearchTerm);
             }
         }
 
-        List<FileMetadata> retList = new ArrayList<>();
+        retList = new ArrayList<>();
 
         for (FileMetadata fileMetadata : workingVersion.getFileMetadatasSorted()) {
             if (searchResultsIdSet == null || searchResultsIdSet.contains(fileMetadata.getDataFile().getId())) {
@@ -622,10 +628,44 @@ public class DatasetPage implements java.io.Serializable {
             sortFileMetadatas(retList);
             
         }
-        
-        return retList;     
+
+        return filterEmbargoedFiles(retList);
     }
-    
+
+    private List<FileMetadata> filterEmbargoedFiles(List<FileMetadata> fileMetadata) {
+        if (canViewEmbargoedFiles()) {
+            return fileMetadata;
+        } else {
+            return fileMetadata.stream()
+                    .filter(entry -> meetsCriteria(entry.getActiveFrom()))
+                    .collect(Collectors.toList());
+
+        }
+    }
+
+    private boolean meetsCriteria(Date activeFrom) {
+        if (activeFrom == null) {
+            return true;
+        }
+
+        try {
+            // Choose format
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+            // Format both dates
+            String nowStr = format.format(new Date(System.currentTimeMillis()));
+            String activeFromStr = format.format(activeFrom);
+
+            // Convert to dates
+            Date nowFormatted = format.parse(nowStr);
+            Date activeFromFormatted = format.parse(activeFromStr);
+            return activeFromFormatted.before(nowFormatted);
+        } catch (ParseException ex) {
+            logger.severe(ex.getMessage());
+            return false;
+        }
+    }
+
     private void sortFileMetadatas(List<FileMetadata> fileList) {
         if ("name".equals(fileSortField) && "desc".equals(fileSortOrder)) {
             Collections.sort(fileList, compareByLabelZtoA);
@@ -1224,6 +1264,10 @@ public class DatasetPage implements java.io.Serializable {
 
     public boolean canViewUnpublishedDataset() {
         return permissionsWrapper.canViewUnpublishedDataset( dvRequestService.getDataverseRequest(), dataset);
+    }
+
+    public boolean canViewEmbargoedFiles() {
+        return permissionsWrapper.canViewEmbargoedFiles(dvRequestService.getDataverseRequest(), dataset);
     }
         
     /* 
