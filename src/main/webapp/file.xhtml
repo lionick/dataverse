@@ -184,8 +184,8 @@
                             <div class="row">
                                 <div id="file-title-block" class="col-xs-12 margin-bottom-half">
                                     <!-- Restricted File Icon -->
-                                    <span class="glyphicon glyphicon-lock text-danger" jsf:rendered="#{FilePage.fileMetadata.restricted and !(fileDownloadHelper.canDownloadFile(FilePage.fileMetadata))}" />
-                                    <span class="icon-unlock text-success" jsf:rendered="#{FilePage.fileMetadata.restricted  and fileDownloadHelper.canDownloadFile(FilePage.fileMetadata) }" />
+                                    <span class="glyphicon glyphicon-lock text-danger" jsf:rendered="#{(FilePage.fileMetadata.restricted or FilePage.fileMetadata.isOnEmbargo()) and !(fileDownloadHelper.canDownloadFile(FilePage.fileMetadata))}" />
+                                    <span class="icon-unlock text-success" jsf:rendered="#{(FilePage.fileMetadata.restricted or FilePage.fileMetadata.isOnEmbargo()) and fileDownloadHelper.canDownloadFile(FilePage.fileMetadata) }" />
 
                                     <!-- Title/Label -->
                                     <h:outputText value="#{FilePage.fileMetadata.label}" styleClass="file-title-label"/>

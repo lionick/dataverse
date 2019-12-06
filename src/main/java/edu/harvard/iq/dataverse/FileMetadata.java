@@ -11,6 +11,8 @@ import com.google.gson.annotations.SerializedName;
 import edu.harvard.iq.dataverse.datasetutility.OptionalFileParams;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -180,7 +182,29 @@ public class FileMetadata implements Serializable {
         this.activeFrom = activeFrom;
     }
     
-    
+    public boolean isOnEmbargo() {
+        if (activeFrom == null) {
+            return false;
+        }
+
+        try {
+            // Choose format
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+            // Format both dates
+            String nowStr = format.format(new Date(System.currentTimeMillis()));
+            String activeFromStr = format.format(activeFrom);
+
+            // Convert to dates
+            Date nowFormatted = format.parse(nowStr);
+            Date activeFromFormatted = format.parse(activeFromStr);
+            return activeFromFormatted.after(nowFormatted);
+        } catch (ParseException ex) {
+            logger.severe(ex.getMessage());
+            return false;
+        }
+
+    }
 
     public boolean isRestricted() {
         return restricted;
