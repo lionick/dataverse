@@ -274,10 +274,11 @@
             </li>
         </ul>
     </div>        
-    <p:commandLink styleClass="btn btn-default btn-request" rendered="#{(fileDownloadHelper.session.user.authenticated 
-                                                                          and !fileMetadata.datasetVersion.deaccessioned
-                                                                          and fileMetadata.dataFile.owner.fileAccessRequest 
-                                                                          and !(fileDownloadHelper.canDownloadFile(fileMetadata)))
+    <p:commandLink styleClass="btn btn-default btn-request" rendered="#{!fileMetadata.isOnEmbargo()
+                                                                          and (fileDownloadHelper.session.user.authenticated
+                                                                                and !fileMetadata.datasetVersion.deaccessioned
+                                                                                and fileMetadata.dataFile.owner.fileAccessRequest
+                                                                                and !(fileDownloadHelper.canDownloadFile(fileMetadata)))
                                                                           and !requestAccessPopupRequired}"
                    process="@this"
                    actionListener="#{fileDownloadHelper.requestAccess(fileMetadata.dataFile)}"
@@ -285,7 +286,8 @@
                    disabled="#{fileMetadata.dataFile.fileAccessRequesters.contains(dataverseSession.user)}">
         <span class="glyphicon glyphicon-bullhorn"/> #{fileMetadata.dataFile.fileAccessRequesters.contains(dataverseSession.user) ? bundle['file.accessRequested'] : bundle['file.requestAccess']}
     </p:commandLink>
-    <p:commandLink styleClass="btn btn-default btn-request" rendered="#{fileDownloadHelper.session.user.authenticated 
+    <p:commandLink styleClass="btn btn-default btn-request" rendered="#{!fileMetadata.isOnEmbargo()
+                                                                          and fileDownloadHelper.session.user.authenticated
                                                                           and !fileMetadata.datasetVersion.deaccessioned
                                                                           and fileMetadata.dataFile.owner.fileAccessRequest 
                                                                           and !(fileDownloadHelper.canDownloadFile(fileMetadata))
@@ -297,7 +299,8 @@
                    disabled="#{fileMetadata.dataFile.fileAccessRequesters.contains(dataverseSession.user)}">
         <span class="glyphicon glyphicon-bullhorn"/> #{fileMetadata.dataFile.fileAccessRequesters.contains(dataverseSession.user) ? bundle['file.accessRequested'] : bundle['file.requestAccess']}
     </p:commandLink>
-    <p:commandLink styleClass="btn btn-default btn-request" rendered="#{!fileDownloadHelper.session.user.authenticated 
+    <p:commandLink styleClass="btn btn-default btn-request" rendered="#{!fileMetadata.isOnEmbargo()
+                                                                          and !fileDownloadHelper.session.user.authenticated
                                                                           and !fileMetadata.datasetVersion.deaccessioned
                                                                           and fileMetadata.dataFile.owner.fileAccessRequest 
                                                                           and !(fileDownloadHelper.canDownloadFile(fileMetadata))}"

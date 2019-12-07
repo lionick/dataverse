@@ -4610,8 +4610,13 @@ public class DatasetPage implements java.io.Serializable {
            // return false;
         }
         for (FileMetadata fmd : workingVersion.getFileMetadatas()){
+            if (fmd.isOnEmbargo()) {
+                return false;
+            }
+        }
+        for (FileMetadata fmd : workingVersion.getFileMetadatas()){
             if (!this.fileDownloadHelper.canDownloadFile(fmd)){
-                return true;               
+                return true;
             }
         }
         return false;
@@ -4670,8 +4675,13 @@ public class DatasetPage implements java.io.Serializable {
             return false;
         }
         for (FileMetadata fmd : workingVersion.getFileMetadatas()){
+            if (fmd.isOnEmbargo()){
+                return false;
+            }
+        }
+        for (FileMetadata fmd : workingVersion.getFileMetadatas()){
             if (!this.fileDownloadHelper.canDownloadFile(fmd)){
-                return true;               
+                return true;
             }
         }
         return false;
