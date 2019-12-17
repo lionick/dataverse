@@ -89,6 +89,9 @@ public class FileMetadata implements Serializable {
     @Expose
     @Temporal(TemporalType.DATE)
     private Date activeFrom;
+
+    @Expose
+    private String url = "";
     
     /**
      * At the FileMetadata level, "restricted" is a historical indication of the
@@ -133,6 +136,7 @@ public class FileMetadata implements Serializable {
         fmd.setDatasetVersion( getDatasetVersion() );
         fmd.setDescription( getDescription() );
         fmd.setActiveFrom(getActiveFrom());
+        fmd.setUrl(getUrl());
         fmd.setLabel( getLabel() );
         fmd.setRestricted( isRestricted() );
         
@@ -180,6 +184,14 @@ public class FileMetadata implements Serializable {
 
     public void setActiveFrom(Date activeFrom) {
         this.activeFrom = activeFrom;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
     
     public boolean isOnEmbargo() {

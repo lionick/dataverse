@@ -398,7 +398,7 @@
                         </div>
                         
                         <div class="fileActiveFrom">
-                            <label class="control-label" for="fileActiveFrom" style="margin-right:1em; margin-top:.5em; vertical-align:top;">
+                            <label class="control-label" for="fileActiveFrom" style="margin-right:1em; margin-top:.5em; margin-bottom:.5em; vertical-align:top;">
                                     Active From
                             </label>
                             <h:inputText class="datepicker" id="fileActiveFrom" value="#{fileMetadata.activeFrom}">
@@ -406,6 +406,13 @@
                               </h:inputText>
                               <p:watermark for="fileActiveFrom" value="yyyy-mm-dd"/>
 
+                        </div>
+
+                        <div class="fileUrl">
+                            <label class="control-label" for="fileUrl" style="margin-right:1em; margin-top:.8em; vertical-align:top;">
+                                #{bundle['file.fileUrl']}
+                            </label>
+                            <p:inputText id="fileUrl" value="#{fileMetadata.url}" style="width:60%; margin-top:.5em;" />
                         </div>
                         
                     </p:column>
