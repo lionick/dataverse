@@ -439,9 +439,7 @@
                     </div>
 
                     <div class="fileDescription small" jsf:rendered="#{!(empty fileMetadata.url)}">
-                        <a href="#{fileMetadata.url}" target="_blank">
-                            #{fileMetadata.url}
-                        </a>
+                        <h:outputText id="fileUrlNonEmpty" value="#{fileMetadata.url}" rendered="#{!(DatasetPage.editMode == 'FILE' or DatasetPage.editMode == 'CREATE') and !(empty fileMetadata.url)}"/>
                     </div>
 
                     <div class="file-tags-block #{DatasetPage.editMode == 'FILE' or DatasetPage.editMode == 'CREATE' ? 'margin-top-half' : ''}" jsf:rendered="#{!(empty fileMetadata.categories) or !(empty fileMetadata.dataFile.tags)}">
