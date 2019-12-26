@@ -193,6 +193,10 @@ public class FileMetadata implements Serializable {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public boolean isUrlFile() {
+        return (StringUtil.nonEmpty(this.url) && edu.harvard.iq.dataverse.api.Util.isUrlUp(this.url));
+    }
     
     public boolean isOnEmbargo() {
         if (activeFrom == null) {

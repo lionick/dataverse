@@ -391,13 +391,18 @@
                 </div>
 
                 <div class="file-metadata-block">
-                    <ui:fragment rendered="#{!empty fileMetadata.dataFile.globalIdString}">
+                    <ui:fragment rendered="#{fileMetadata.isUrlFile()}">
+                        <a href="#{fileMetadata.url}" target="_blank">
+                            #{fileMetadata.url}
+                        </a>
+                    </ui:fragment>
+                    <ui:fragment rendered="#{(!fileMetadata.isUrlFile()) and (!empty fileMetadata.dataFile.globalIdString)}">
                         <!-- rendered="# {!(fileMetadata.datasetVersion.released or fileMetadata.datasetVersion.deaccessioned)}" -->
                         <a href="#{widgetWrapper.wrapURL('/file.xhtml?persistentId='.concat(fileMetadata.dataFile.globalIdString).concat('&amp;version=').concat(fileMetadata.datasetVersion.friendlyVersionNumber))}">
                             #{fileMetadata.label}
                         </a>
                     </ui:fragment>
-                    <ui:fragment rendered="#{empty fileMetadata.dataFile.globalIdString}">
+                    <ui:fragment rendered="#{(!fileMetadata.isUrlFile()) and (empty fileMetadata.dataFile.globalIdString)}">
                         <a href="#{widgetWrapper.wrapURL('/file.xhtml?fileId='.concat(fileMetadata.dataFile.id).concat('&amp;version=').concat(fileMetadata.datasetVersion.friendlyVersionNumber))}">
                             #{fileMetadata.label}
                         </a>

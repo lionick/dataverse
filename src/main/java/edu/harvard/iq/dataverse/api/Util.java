@@ -1,6 +1,8 @@
 package edu.harvard.iq.dataverse.api;
 
 import java.io.StringReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Set;
@@ -120,6 +122,24 @@ public class Util {
                         .filter(p -> p.length() > 0 )   // no empty strings
                         .distinct()                     // distinct
                         .collect(Collectors.toList());
+    }
+
+    /**
+     * checks if a url is up (returns 200 status ok).
+     *
+     * @param urlAsStr The url to be checked
+     * @return true - if the url is up.
+     * false - in any other case.
+     */
+    public static boolean isUrlUp (String urlAsStr) {
+        try {
+            URL url = new URL(urlAsStr);
+            HttpURLConnection huc = (HttpURLConnection) url.openConnection();
+            int responseCode = huc.getResponseCode();
+            return HttpURLConnection.HTTP_OK == responseCode;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 }
