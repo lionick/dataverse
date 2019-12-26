@@ -445,6 +445,13 @@ public class DataFileServiceBean implements java.io.Serializable {
             dataFile.setRestricted(restricted);
         }
 
+        try {
+            Object targetUrlRes = (Object) em.createNativeQuery("SELECT url FROM filemetadata WHERE datafile_id=" + dataFile.getId()
+                    + " AND datasetversion_id = (SELECT max(datasetversion_id) FROM filemetadata WHERE datafile_id=" + dataFile.getId() + ")").getSingleResult();
+            dataFile.setTargetUrl((String) targetUrlRes);
+        } catch (Exception ex) {
+            logger.severe(ex.getMessage());
+        }
 
         Dataset owner = new Dataset();
 

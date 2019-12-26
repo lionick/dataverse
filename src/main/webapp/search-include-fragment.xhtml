@@ -568,10 +568,18 @@
 
                             <span class="text-danger glyphicon glyphicon-lock" title="#{bundle.restricted}" jsf:rendered="#{result.entity.restricted and !permissionsWrapper.hasDownloadFilePermission(result.entity)}"/>
                             <span class="text-success icon-unlock" title="#{bundle.restrictedaccess}" jsf:rendered="#{result.entity.restricted and permissionsWrapper.hasDownloadFilePermission(result.entity)}"/>
-                            <a href="#{!SearchIncludeFragment.rootDv and !result.isInTree ? (result.harvested ? result.fileDatasetUrl : result.fileUrl) : widgetWrapper.wrapURL(result.harvested ? result.fileDatasetUrl : result.fileUrl)}" target="#{(!SearchIncludeFragment.rootDv and !result.isInTree and widgetWrapper.widgetView) or result.harvested ? '_blank' : ''}">
-                                <h:outputText value="#{result.name}" style="padding:4px 0;" rendered="#{result.nameHighlightSnippet == null}"/>
-                                <h:outputText value="#{result.nameHighlightSnippet}" style="padding:4px 0;" rendered="#{result.nameHighlightSnippet != null}" escape="false"/>
-                                <h:outputText value=" (#{result.entityId})" style="padding:4px 0;" rendered="#{SearchIncludeFragment.debug == true}"/></a>
+                            <!-- if url file, then display the url and redirect to that url when clicked -->
+                            <div jsf:rendered="#{result.entity.isUrlFile()}">
+                                <a href="#{result.entity.targetUrl}" target="_blank">
+                                    #{result.entity.targetUrl}
+                                </a>
+                            </div>
+                            <!-- if not a url file, then display file's name -->
+                            <a href="#{!SearchIncludeFragment.rootDv and !result.isInTree ? (result.harvested ? result.fileDatasetUrl : result.fileUrl) : widgetWrapper.wrapURL(result.harvested ? result.fileDatasetUrl : result.fileUrl)}" target="#{(!SearchIncludeFragment.rootDv and !result.isInTree and widgetWrapper.widgetView) or result.harvested ? '_blank' : ''}" jsf:rendered="#{!result.entity.isUrlFile()}">
+                                <h:outputText value="#{result.name}" style="padding:4px 0;" rendered="#{!result.entity.isUrlFile() and result.nameHighlightSnippet == null}"/>
+                                <h:outputText value="#{result.nameHighlightSnippet}" style="padding:4px 0;" rendered="#{!result.entity.isUrlFile() and result.nameHighlightSnippet != null}" escape="false"/>
+                                <h:outputText value=" (#{result.entityId})" style="padding:4px 0;" rendered="#{!result.entity.isUrlFile() and SearchIncludeFragment.debug == true}"/>
+                            </a>
                             <h:outputText value="#{bundle['dataset.versionUI.draft']}" styleClass="label label-primary" rendered="#{result.draftState}"/>
                             <h:outputText value="#{bundle['dataset.versionUI.inReview']}" styleClass="label label-success" rendered="#{result.inReviewState}"/>
                             <h:outputText value="#{bundle['dataset.versionUI.unpublished']}" styleClass="label label-warning" rendered="#{result.unpublishedState}"/>
@@ -604,6 +612,10 @@
                             <!-- if this is a tabular data file, extra information, such as the numbers of variables and observations and the unf, is displayed: -->
                             <h:outputText styleClass="text-muted" value=" - #{SearchIncludeFragment.tabularDataDisplayInfo(result.entity)}"
                                             rendered="#{!empty SearchIncludeFragment.tabularDataDisplayInfo(result.entity)}"/>
+                        </div>
+
+                        <div>
+                            <h:outputText styleClass="text-muted" value="#{result.entity.targetUrl}" rendered="#{result.entity.isUrlFile()}"/>
                         </div>
 
                         <div class="file-tags-block" jsf:rendered="#{(!empty result.fileCategories) or (!empty result.tabularDataTags)}">

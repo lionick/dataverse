@@ -47,6 +47,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
+
+import edu.harvard.iq.dataverse.util.StringUtil;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
@@ -171,6 +173,9 @@ public class DataFile extends DvObject implements Comparable {
 
     @Expose
     private boolean restricted;
+
+    @Expose
+    private String targetUrl;
     
     @Expose
     @Column(columnDefinition = "TEXT", nullable = true, name="prov_entityname")
@@ -530,6 +535,18 @@ public class DataFile extends DvObject implements Comparable {
     
     public void setRestricted(boolean restricted) {
         this.restricted = restricted;
+    }
+
+    public void setTargetUrl(String targetUrl) {
+        this.targetUrl = targetUrl;
+    }
+
+    public String getTargetUrl() {
+        return this.targetUrl;
+    }
+
+    public boolean isUrlFile() {
+        return (StringUtil.nonEmpty(this.targetUrl) && edu.harvard.iq.dataverse.api.Util.isUrlUp(this.targetUrl));
     }
 
     public ChecksumType getChecksumType() {
