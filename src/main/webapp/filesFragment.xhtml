@@ -517,8 +517,8 @@
                 <!-- when the dataset is locked. I didn't want to completely remove the disabled="" attributes, -->
                 <!-- since I feel we should figure out/remember why we put that logic in place in the first place... -->
                 <!-- so I have replaced them with {false && DatasetPage.lockedFromDownload}. - L.A. Aug. 2018 -->
-                <div jsf:id="downloadButtonBlockNormal" class="btn-group" 
-                     jsf:rendered="#{(!(empty DatasetPage.workingVersion.fileMetadatas) 
+                <div jsf:id="downloadButtonBlockNormal" class="btn-group"
+                     jsf:rendered="#{(!(empty DatasetPage.workingVersion.fileMetadatas)
                                     and DatasetPage.workingVersion.fileMetadatas.size() > 1) and DatasetPage.downloadButtonAvailable
                                     and !DatasetPage.isHasTabular()}">
                     <p:commandLink rendered="#{!(DatasetPage.downloadPopupRequired)}"
@@ -537,11 +537,11 @@
                         <span class="glyphicon glyphicon-download-alt"/> #{bundle.download}
                     </p:commandLink>
                 </div>
-                <div jsf:id="downloadButtonBlockTabular" class="btn-group" 
-                     jsf:rendered="#{(!(empty DatasetPage.workingVersion.fileMetadatas) 
+                <div jsf:id="downloadButtonBlockTabular" class="btn-group"
+                     jsf:rendered="#{(!(empty DatasetPage.workingVersion.fileMetadatas)
                                     and DatasetPage.workingVersion.fileMetadatas.size() > 1) and DatasetPage.downloadButtonAvailable
                                     and DatasetPage.isHasTabular()}">
-                        <button type="button" class="btn btn-default btn-download dropdown-toggle" data-toggle="dropdown">  
+                        <button type="button" class="btn btn-default btn-download dropdown-toggle" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-download-alt"/> #{bundle.download} <span class="caret"/>
                         </button>
                         <ul jsf:id="downloadDropdownOptions" class="dropdown-menu multi-level pull-right text-left" role="menu">
@@ -605,8 +605,8 @@
                 </ui:include>
             </ui:fragment>
 
-            <div class="btn-group" jsf:rendered="#{!fileMetadata.dataFile.filePackage or
-                fileMetadata.dataFile.filePackage and systemConfig.HTTPDownload}">
+            <div class="btn-group" jsf:rendered="#{!fileMetadata.isUrlFile() and (!fileMetadata.dataFile.filePackage or
+                fileMetadata.dataFile.filePackage and systemConfig.HTTPDownload)}">
                 <ui:include src="file-download-button-fragment.xhtml">
                     <ui:param name="fileMetadata" value="#{fileMetadata}"/>
                     <ui:param name="canUpdateDataset" value="#{DatasetPage.canUpdateDataset()}"/>
