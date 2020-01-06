@@ -150,7 +150,7 @@
                     <!-- FACET: TYPE -->
                     <div class="btn-group" style="margin-right:20px;" jsf:rendered="#{!(empty DatasetPage.fileTypeFacetLabels)}">
                         <button type="button" class="btn btn-link dropdown-toggle" style="padding:0;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            #{bundle['file.results.filter.type']} <h:outputText value="#{(empty DatasetPage.fileTypeFacet) ? bundle['file.results.filter.all'] : DatasetPage.fileTypeFacet}"
+                            #{bundle['resource.results.filter.type']} <h:outputText value="#{(empty DatasetPage.fileTypeFacet) ? bundle['file.results.filter.all'] : DatasetPage.fileTypeFacet}"
                                                      styleClass="#{!empty DatasetPage.fileTypeFacet ? 'highlightBold' : ''}"/> <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
@@ -224,7 +224,7 @@
                     <!-- FACET: TAG -->
                     <div class="btn-group" style="margin-right:20px;" jsf:rendered="#{!(empty DatasetPage.fileTagsFacetLabels)}">
                         <button type="button" class="btn btn-link dropdown-toggle" style="padding:0;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            #{bundle['file.results.filter.tag']} <h:outputText value="#{(empty DatasetPage.fileTagsFacet) ? bundle['file.results.filter.all'] : DatasetPage.fileTagsFacet}"
+                            #{bundle['resource.results.filter.tag']} <h:outputText value="#{(empty DatasetPage.fileTagsFacet) ? bundle['file.results.filter.all'] : DatasetPage.fileTagsFacet}"
                                                     styleClass="#{!empty DatasetPage.fileTagsFacet ? 'highlightBold' : ''}"/> <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
@@ -354,7 +354,7 @@
             <f:facet name="header">
                 <div jsf:id="filesHeaderCount">
                     <!-- Files Count -->
-                    <h:outputFormat value="#{DatasetPage.fileMetadatasSearch.size() == 1 ? bundle['file.count.one'] : bundle['file.count']}" styleClass="highlightBold" rendered="#{DatasetPage.fileMetadatasSearch.size() gt 0}">
+                    <h:outputFormat value="#{DatasetPage.fileMetadatasSearch.size() == 1 ? bundle['resource.count.one'] : bundle['resource.count']}" styleClass="highlightBold" rendered="#{DatasetPage.fileMetadatasSearch.size() gt 0}">
                         <f:param value="#{(DatasetPage.filePaginatorPage * DatasetPage.rowsPerPage) + 1}"/>
                         <f:param value="#{Math:min((DatasetPage.filePaginatorPage + 1) * DatasetPage.rowsPerPage,DatasetPage.fileMetadatasSearch.size()) }"/>
                         <f:param value="#{DatasetPage.fileMetadatasSearch.size()}"/>
