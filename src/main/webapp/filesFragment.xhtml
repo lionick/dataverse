@@ -605,8 +605,7 @@
                 </ui:include>
             </ui:fragment>
 
-            <div class="btn-group" jsf:rendered="#{!fileMetadata.isUrlFile() and (!fileMetadata.dataFile.filePackage or
-                fileMetadata.dataFile.filePackage and systemConfig.HTTPDownload)}">
+            <div class="btn-group" jsf:rendered="#{!fileMetadata.dataFile.filePackage or fileMetadata.dataFile.filePackage and systemConfig.HTTPDownload}">
                 <ui:include src="file-download-button-fragment.xhtml">
                     <ui:param name="fileMetadata" value="#{fileMetadata}"/>
                     <ui:param name="canUpdateDataset" value="#{DatasetPage.canUpdateDataset()}"/>
