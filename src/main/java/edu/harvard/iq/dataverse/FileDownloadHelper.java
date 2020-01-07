@@ -362,51 +362,64 @@ public class FileDownloadHelper implements java.io.Serializable {
     public void setSelectedFileId(String selectedFileId) {
         this.selectedFileId = selectedFileId;
     }
-   
+
     /**
-     *  WARNING: Before calling this, make sure the user has download
-     *  permission for the file!!  (See DatasetPage.canDownloadFile())
-     * 
+     * WARNING: Before calling this, make sure the user has download
+     * permission for the file!!  (See DatasetPage.canDownloadFile())
+     * <p>
      * Should there be a Explore WorldMap Button for this file?
-     *   See table in: https://github.com/IQSS/dataverse/issues/1618
-     * 
-     *  (1) Does the file have MapLayerMetadata?
-     *  (2) Are the proper settings in place
-     * 
-     * @param  fileMetadata
+     * See table in: https://github.com/IQSS/dataverse/issues/1618
+     * <p>
+     * (1) Does the file have MapLayerMetadata?
+     * (2) Are the proper settings in place
+     *
+     * @param fileMetadata
      * @return boolean
      */
-   public boolean canDownloadFile(FileMetadata fileMetadata){
-        if (fileMetadata == null){
+    public boolean canDownloadFile(FileMetadata fileMetadata) {
+        if (fileMetadata == null) {
             return false;
         }
-       
-        if ((fileMetadata.getId() == null) || (fileMetadata.getDataFile().getId() == null)){
+
+        if ((fileMetadata.getId() == null) || (fileMetadata.getDataFile().getId() == null)) {
             return false;
-        } 
-        
+        }
+
         Long fid = fileMetadata.getId();
         //logger.info("calling candownloadfile on filemetadata "+fid);
         // Note that `isRestricted` at the FileMetadata level is for expressing intent by version. Enforcement is done with `isRestricted` at the DataFile level.
         boolean isRestrictedFile = fileMetadata.isRestricted();
         boolean isOnEmbargo = fileMetadata.isOnEmbargo();
+        boolean isUrlFile = fileMetadata.isUrlFile();
 
         // Has this file been checked? Look at the DatasetPage hash
-        if (this.fileDownloadPermissionMap.containsKey(fid)){
+        if (this.fileDownloadPermissionMap.containsKey(fid)) {
             // Yes, return previous answer
             //logger.info("using cached result for candownloadfile on filemetadata "+fid);
             return this.fileDownloadPermissionMap.get(fid);
         }
-       if (fileMetadata.getDatasetVersion().isDeaccessioned()) {
-           if (this.doesSessionUserHavePermission(Permission.EditDataset, fileMetadata)) {
-               // Yes, save answer and return true
-               this.fileDownloadPermissionMap.put(fid, true);
-               return true;
-           } else {
-               this.fileDownloadPermissionMap.put(fid, false);
-               return false;
-           }
-       }
+
+        if (fileMetadata.getDatasetVersion().isDeaccessioned()) {
+            if (this.doesSessionUserHavePermission(Permission.EditDataset, fileMetadata)) {
+                // Yes, save answer and return true
+                this.fileDownloadPermissionMap.put(fid, true);
+                return true;
+            } else {
+                this.fileDownloadPermissionMap.put(fid, false);
+                return false;
+            }
+        }
+
+        if (isUrlFile) {
+            if (this.doesSessionUserHavePermission(Permission.EditDataset, fileMetadata)) {
+                // Yes, save answer and return true
+                this.fileDownloadPermissionMap.put(fid, true);
+                return true;
+            } else {
+                this.fileDownloadPermissionMap.put(fid, false);
+                return false;
+            }
+        }
 
         if (!isRestrictedFile) {
             if (!isOnEmbargo) {
@@ -423,15 +436,6 @@ public class FileDownloadHelper implements java.io.Serializable {
             }
         }
 
-       if (isOnEmbargo) {
-           // See if the DataverseRequest, which contains IP Groups, has permission to download the file.
-           if (permissionService.requestOn(dvRequestService.getDataverseRequest(), fileMetadata.getDataFile()).has(Permission.DownloadFile)) {
-               logger.fine("The DataverseRequest (User plus IP address) has access to download the file.");
-               this.fileDownloadPermissionMap.put(fid, true);
-               return true;
-           }
-       }
-        
         // See if the DataverseRequest, which contains IP Groups, has permission to download the file.
         if (permissionService.requestOn(dvRequestService.getDataverseRequest(), fileMetadata.getDataFile()).has(Permission.DownloadFile)) {
             logger.fine("The DataverseRequest (User plus IP address) has access to download the file.");
