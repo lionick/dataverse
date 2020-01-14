@@ -92,6 +92,9 @@ public class FileMetadata implements Serializable {
 
     @Expose
     private String url = "";
+
+    @Expose
+    private String title = "";
     
     /**
      * At the FileMetadata level, "restricted" is a historical indication of the
@@ -137,6 +140,7 @@ public class FileMetadata implements Serializable {
         fmd.setDescription( getDescription() );
         fmd.setActiveFrom(getActiveFrom());
         fmd.setUrl(getUrl());
+        fmd.setTitle(getTitle());
         fmd.setLabel( getLabel() );
         fmd.setRestricted( isRestricted() );
         
@@ -192,6 +196,14 @@ public class FileMetadata implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public boolean isUrlFile() {

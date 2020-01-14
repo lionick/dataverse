@@ -1,0 +1,2 @@
+ALTER TABLE filemetadata
+ADD COLUMN title CHARACTER VARYING(255);

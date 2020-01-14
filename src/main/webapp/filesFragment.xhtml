@@ -414,6 +414,11 @@
                         <div jsf:rendered="#{!empty fileMetadata.directoryLabel}">
                             <h:outputText id="fileHierarchy" value="#{fileMetadata.directoryLabel}/"/>
                         </div>
+
+                        <div class="fileTitle" jsf:rendered="#{!(empty fileMetadata.title)}">
+                            <h:outputText id="fileTitleNonEmpty" value="#{fileMetadata.title}" rendered="#{!(DatasetPage.editMode == 'FILE' or DatasetPage.editMode == 'CREATE') and !(empty fileMetadata.title)}"/>
+                        </div>
+
                         <h:outputText id="fileTypeOutputRegular" value="#{fileMetadata.dataFile.friendlyType}" rendered="#{!(fileMetadata.dataFile.tabularData)}"/>
                         <h:outputText id="fileTypeOutputTabular" value="#{bundle['file.type.tabularData']}" rendered="#{fileMetadata.dataFile.tabularData}"/>
                         <h:outputText id="fileSize" value=" - #{fileMetadata.dataFile.friendlySize}" rendered="#{!(DatasetPage.editMode == 'FILE' or DatasetPage.editMode == 'CREATE')}"/>

@@ -352,6 +352,13 @@
                         <p:inputText id="fileName" value="#{fileMetadata.label}" style="width:60%; margin-bottom:.5em;" disabled="#{fileMetadata.dataFile.filePackage}"/>
                         <p:message for="fileName"/>
 
+                        <div class="fileTitle">
+                            <label class="control-label" for="fileTitle" style="margin-right:3.6em; margin-bottom:.5em; vertical-align:top;">
+                                #{bundle['file.fileTitle']}
+                            </label>
+                            <p:inputText id="fileTitle" value="#{fileMetadata.title}" style="width:60%; margin-bottom:.5em;" />
+                        </div>
+
                         <label class="control-label" for="fileDirectoryLabel" style="margin-right:1em;margin-bottom:.5em;">
                                 #{bundle['file.metadataTab.fileMetadata.hierarchy.label']}    
                             <span class="glyphicon glyphicon-question-sign tooltip-icon"
