@@ -12,7 +12,6 @@ import edu.harvard.iq.dataverse.workflows.WorkflowComment;
 import java.io.Serializable;
 import java.net.URL;
 import java.sql.Timestamp;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -574,6 +573,8 @@ public class DatasetVersion implements Serializable {
                 newFm.setDescription(fm.getDescription());
                 newFm.setActiveFrom(fm.getActiveFrom());
                 newFm.setUrl(fm.getUrl());
+                newFm.setFileType(fm.getFileType());
+                newFm.setFileTypeSubcategory(fm.getFileTypeSubcategory());
                 newFm.setTitle(fm.getTitle());
                 newFm.setLabel(fm.getLabel());
                 newFm.setDirectoryLabel(fm.getDirectoryLabel());

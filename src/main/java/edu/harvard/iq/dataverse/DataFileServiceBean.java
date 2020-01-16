@@ -1,6 +1,5 @@
 package edu.harvard.iq.dataverse;
 
-import edu.harvard.iq.dataverse.authorization.AccessRequest;
 import edu.harvard.iq.dataverse.authorization.users.AuthenticatedUser;
 import edu.harvard.iq.dataverse.dataaccess.DataAccess;
 import edu.harvard.iq.dataverse.dataaccess.ImageThumbConverter;
@@ -829,7 +828,7 @@ public class DataFileServiceBean implements java.io.Serializable {
         }
         logger.fine("Retrieved and mapped "+i+" file categories attached to files in the version "+version.getId());
         
-        List<Object[]> metadataResults = em.createNativeQuery("select id, datafile_id, DESCRIPTION, LABEL, RESTRICTED, DIRECTORYLABEL, prov_freeform, ACTIVEFROM, URL, TITLE from FileMetadata where datasetversion_id = "+version.getId() + " ORDER BY LABEL").getResultList();
+        List<Object[]> metadataResults = em.createNativeQuery("select id, datafile_id, DESCRIPTION, LABEL, RESTRICTED, DIRECTORYLABEL, prov_freeform, ACTIVEFROM, URL, TITLE, FILETYPE, FILETYPESUBCATEGORY from FileMetadata where datasetversion_id = "+version.getId() + " ORDER BY LABEL").getResultList();
         
         for (Object[] result : metadataResults) {
             Integer filemeta_id = (Integer) result[0];
@@ -907,6 +906,18 @@ public class DataFileServiceBean implements java.io.Serializable {
 
             if (title != null) {
                 fileMetadata.setTitle(title);
+            }
+
+            String fileType = (String) result[10];
+
+            if (fileType != null) {
+                fileMetadata.setFileType(fileType);
+            }
+
+            String fileTypeSubcategory = (String) result[11];
+
+            if (fileTypeSubcategory != null) {
+                fileMetadata.setFileTypeSubcategory(fileTypeSubcategory);
             }
                         
             retList.add(fileMetadata);

@@ -421,6 +421,41 @@
                             </label>
                             <p:inputText id="fileUrl" value="#{fileMetadata.url}" style="width:60%; margin-top:.5em;" />
                         </div>
+
+                        <div class="form-horizontal">
+                            <div class="form-group text-left">
+                                <label for="fileTypeOptions" class="col-sm-3" style="margin-right:1em; margin-top:.8em; vertical-align:top;">#{bundle['file.fileType']}
+                                    <span class="glyphicon glyphicon-asterisk text-danger" title="#{bundle.requiredField}"/>
+                                </label>
+                                <p:selectOneMenu widgetVar="fileTypeOptions" id="fileTypeOptions" styleClass="col-sm-9 form-control"
+                                                 style="width:60%; margin-top:.5em;"  value="#{fileMetadata.fileType}"
+                                                 required="#{true}" requiredMessage="#{bundle['file.fileType.error']}">
+                                    <p:ajax listener="#{fileMetadata.onFileTypeChange}" update="fileType1Options" />
+                                    <f:selectItem itemLabel="#{bundle.select}" itemValue="#{null}" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="#{bundle['file.fileType.opt1']}" itemValue="#{bundle['file.fileType.opt1']}" />
+                                    <f:selectItem itemLabel="#{bundle['file.fileType.opt2']}" itemValue="#{bundle['file.fileType.opt2']}" />
+                                    <f:selectItem itemLabel="#{bundle['file.fileType.opt3']}" itemValue="#{bundle['file.fileType.opt3']}" />
+                                    <f:selectItem itemLabel="#{bundle['file.fileType.opt4']}" itemValue="#{bundle['file.fileType.opt4']}" />
+                                    <f:selectItem itemLabel="#{bundle['file.fileType.opt5']}" itemValue="#{bundle['file.fileType.opt5']}" />
+                                    <f:selectItem itemLabel="#{bundle['file.fileType.opt6']}" itemValue="#{bundle['file.fileType.opt6']}" />
+                                    <f:selectItem itemLabel="#{bundle['file.fileType.opt7']}" itemValue="#{bundle['file.fileType.opt7']}" />
+                                </p:selectOneMenu>
+                            </div>
+                        </div>
+
+                        <!-- File type subcategories -->
+                        <div class="form-horizontal">
+                            <div class="form-group text-left" jsf:rendered="#{fileMetadata.showFileTypeSubcategories}">
+                                <p:outputLabel for="fileType1Options" value="#{bundle['file.fileTypeSubcategory']}"
+                                               class="col-sm-3"
+                                               style="margin-right:1em;vertical-align:top;" />
+                                <p:selectOneMenu widgetVar="fileType1Options" id="fileType1Options" styleClass="col-sm-9 form-control"
+                                                 style="width:60%;" value="#{fileMetadata.fileTypeSubcategory}">
+                                    <f:selectItem itemLabel="#{bundle.select}" itemValue="#{null}" noSelectionOption="true" />
+                                    <f:selectItems value="#{fileMetadata.fileTypeSubcategories}" />
+                                </p:selectOneMenu>
+                            </div>
+                        </div>
                         
                     </p:column>
                     

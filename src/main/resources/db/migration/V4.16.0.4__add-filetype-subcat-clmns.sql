@@ -1,0 +1,5 @@
+ALTER TABLE filemetadata
+ADD COLUMN filetype CHARACTER VARYING(255);
+
+ALTER TABLE filemetadata
+ADD COLUMN filetypesubcategory CHARACTER VARYING(255);

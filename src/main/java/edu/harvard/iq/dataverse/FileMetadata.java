@@ -13,12 +13,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.json.Json;
@@ -44,10 +39,10 @@ import edu.harvard.iq.dataverse.datavariable.CategoryMetadata;
 import edu.harvard.iq.dataverse.datavariable.DataVariable;
 import edu.harvard.iq.dataverse.datavariable.VarGroup;
 import edu.harvard.iq.dataverse.datavariable.VariableMetadata;
+import edu.harvard.iq.dataverse.util.BundleUtil;
 import edu.harvard.iq.dataverse.util.DateUtil;
 import edu.harvard.iq.dataverse.util.StringUtil;
-import java.util.HashSet;
-import java.util.Set;
+
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.ConstraintViolation;
@@ -92,6 +87,12 @@ public class FileMetadata implements Serializable {
 
     @Expose
     private String url = "";
+
+    @Expose
+    private String fileType = "";
+
+    @Expose
+    private String fileTypeSubcategory = "";
 
     @Expose
     private String title = "";
@@ -140,6 +141,8 @@ public class FileMetadata implements Serializable {
         fmd.setDescription( getDescription() );
         fmd.setActiveFrom(getActiveFrom());
         fmd.setUrl(getUrl());
+        fmd.setFileType(getFileType());
+        fmd.setFileTypeSubcategory(getFileTypeSubcategory());
         fmd.setTitle(getTitle());
         fmd.setLabel( getLabel() );
         fmd.setRestricted( isRestricted() );
@@ -196,6 +199,61 @@ public class FileMetadata implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    public void onFileTypeChange() {
+        getFileTypeSubcategories();
+    }
+
+    public Map<String, String> getFileTypeSubcategories() {
+        if (fileType.equals(BundleUtil.getStringFromBundle("file.fileType.opt1"))) {
+            return new HashMap<String, String>(3) {
+                {
+                    put(BundleUtil.getStringFromBundle("file.fileType.opt1.subcat1"),
+                            BundleUtil.getStringFromBundle("file.fileType.opt1.subcat1"));
+                    put(BundleUtil.getStringFromBundle("file.fileType.opt1.subcat2"),
+                            BundleUtil.getStringFromBundle("file.fileType.opt1.subcat2"));
+                    put(BundleUtil.getStringFromBundle("file.fileType.opt1.subcat3"),
+                            BundleUtil.getStringFromBundle("file.fileType.opt1.subcat3"));
+                }
+            };
+        } else if (fileType.equals(BundleUtil.getStringFromBundle("file.fileType.opt3"))) {
+            return new HashMap<String, String>(4) {
+                {
+                    put(BundleUtil.getStringFromBundle("file.fileType.opt3.subcat1"),
+                            BundleUtil.getStringFromBundle("file.fileType.opt3.subcat1"));
+                    put(BundleUtil.getStringFromBundle("file.fileType.opt3.subcat2"),
+                            BundleUtil.getStringFromBundle("file.fileType.opt3.subcat2"));
+                    put(BundleUtil.getStringFromBundle("file.fileType.opt3.subcat3"),
+                            BundleUtil.getStringFromBundle("file.fileType.opt3.subcat3"));
+                    put(BundleUtil.getStringFromBundle("file.fileType.opt3.subcat4"),
+                            BundleUtil.getStringFromBundle("file.fileType.opt3.subcat4"));
+                }
+            };
+        } else {
+            return new HashMap<String, String>(1);
+        }
+    }
+
+    public String getFileTypeSubcategory() {
+        return fileTypeSubcategory;
+    }
+
+    public void setFileTypeSubcategory(String fileTypeSubcategory) {
+        this.fileTypeSubcategory = fileTypeSubcategory;
+    }
+
+    public boolean getShowFileTypeSubcategories() {
+        return fileType.equals("Questionnaire") ||
+                fileType.equals("Data Collection Guidelines");
     }
 
     public String getTitle() {
