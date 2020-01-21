@@ -252,6 +252,10 @@ public class FileMetadata implements Serializable {
     }
 
     public boolean getShowFileTypeSubcategories() {
+        if (fileType == null) {
+            return false;
+        }
+
         return fileType.equals("Questionnaire") ||
                 fileType.equals("Data Collection Guidelines");
     }
