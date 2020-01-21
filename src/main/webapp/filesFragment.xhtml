@@ -429,7 +429,12 @@
                             <f:param value="#{DatasetPage.getGuestbookResponseCount(fileMetadata)}"/>
                         </h:outputFormat>
 
-                        <div class="checksum-block" style="word-break: break-all;" jsf:rendered="#{!fileMetadata.dataFile.tabularData}">
+                        <div class="fileType" jsf:rendered="#{!(empty fileMetadata.fileType)}">
+                            <h:outputText id="fileTypeNonEmpty" value="#{fileMetadata.fileType}" rendered="#{!(DatasetPage.editMode == 'FILE' or DatasetPage.editMode == 'CREATE') and !(empty fileMetadata.fileType)}"/>
+                            <h:outputText id="fileTypeSubcategoryNonEmpty" value=".#{fileMetadata.fileTypeSubcategory}" rendered="#{(!empty fileMetadata.fileTypeSubcategory) and (!(DatasetPage.editMode == 'FILE' or DatasetPage.editMode == 'CREATE') and !(empty fileMetadata.fileType))}"/>
+                        </div>
+
+                        <div class="checksum-block" style="word-break: break-all;" jsf:rendered="#{!fileMetadata.dataFile.tabularData and (empty fileMetadata.fileType)}">
                             <h:outputText id="file-checksum" value="#{fileMetadata.dataFile.checksumType}: #{fileMetadata.dataFile.checksumValue}" rendered="#{!(empty fileMetadata.dataFile.checksumValue) and ((DatasetPage.editMode != 'FILE' and DatasetPage.editMode != 'CREATE') or !DatasetPage.isDuplicate(fileMetadata))}"/>
                         </div>
                     </div>
