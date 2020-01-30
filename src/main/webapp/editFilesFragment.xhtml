@@ -427,35 +427,94 @@
                                 <label for="fileTypeOptions" class="col-sm-3" style="margin-right:1em; margin-top:.8em; vertical-align:top;">#{bundle['file.fileType']}
                                     <span class="glyphicon glyphicon-asterisk text-danger" title="#{bundle.requiredField}"/>
                                 </label>
-                                <p:selectOneMenu widgetVar="fileTypeOptions" id="fileTypeOptions" styleClass="col-sm-9 form-control"
-                                                 style="width:60%; margin-top:.5em;"  value="#{fileMetadata.fileType}"
-                                                 required="#{true}" requiredMessage="#{bundle['file.fileType.error']}">
-                                    <p:ajax listener="#{fileMetadata.onFileTypeChange}" update="fileType1Options" />
+                                <h:panelGroup id="firstDropDown" layout="block">
+
+                                  <h:selectOneMenu widgetVar="fileTypeOptions" id="fileTypeOptions" styleClass="col-sm-9 form-control categoryMenu"
+                                                   style="width:60%; margin-top:.5em;"  value="#{fileMetadata.fileType}"
+                                                   required="#{true}" requiredMessage="#{bundle['file.fileType.error']}">
+                                      <f:selectItem itemLabel="#{bundle.select}" itemValue="#{null}" noSelectionOption="true" />
+                                      <f:selectItem itemLabel="#{bundle['file.fileType.opt1']}" itemValue="#{bundle['file.fileType.opt1']}" />
+                                      <f:selectItem itemLabel="#{bundle['file.fileType.opt2']}" itemValue="#{bundle['file.fileType.opt2']}" />
+                                      <f:selectItem itemLabel="#{bundle['file.fileType.opt3']}" itemValue="#{bundle['file.fileType.opt3']}" />
+                                      <f:selectItem itemLabel="#{bundle['file.fileType.opt4']}" itemValue="#{bundle['file.fileType.opt4']}" />
+                                      <f:selectItem itemLabel="#{bundle['file.fileType.opt5']}" itemValue="#{bundle['file.fileType.opt5']}" />
+                                      <f:selectItem itemLabel="#{bundle['file.fileType.opt6']}" itemValue="#{bundle['file.fileType.opt6']}" />
+                                      <f:selectItem itemLabel="#{bundle['file.fileType.opt7']}" itemValue="#{bundle['file.fileType.opt7']}" />
+                                  </h:selectOneMenu>
+                                </h:panelGroup>
+                            </div>
+                        </div>
+
+
+
+                        <!-- File type subcategories -->
+                        <div class="form-horizontal">
+                            <div class="form-group text-left subcategory1Wrapper" >
+                                <p:outputLabel for="fileType1Options1" value="#{bundle['file.fileTypeSubcategory']}"
+                                               class="col-sm-3"
+                                               style="margin-right:1em;vertical-align:top;" />
+                                <p:selectOneMenu widgetVar="fileType1Options1" id="fileType1Options1" styleClass="col-sm-9 form-control subcategory1"
+                                                 style="width:60%;" value="#{fileMetadata.fileTypeSubcategory}">
                                     <f:selectItem itemLabel="#{bundle.select}" itemValue="#{null}" noSelectionOption="true" />
-                                    <f:selectItem itemLabel="#{bundle['file.fileType.opt1']}" itemValue="#{bundle['file.fileType.opt1']}" />
-                                    <f:selectItem itemLabel="#{bundle['file.fileType.opt2']}" itemValue="#{bundle['file.fileType.opt2']}" />
-                                    <f:selectItem itemLabel="#{bundle['file.fileType.opt3']}" itemValue="#{bundle['file.fileType.opt3']}" />
-                                    <f:selectItem itemLabel="#{bundle['file.fileType.opt4']}" itemValue="#{bundle['file.fileType.opt4']}" />
-                                    <f:selectItem itemLabel="#{bundle['file.fileType.opt5']}" itemValue="#{bundle['file.fileType.opt5']}" />
-                                    <f:selectItem itemLabel="#{bundle['file.fileType.opt6']}" itemValue="#{bundle['file.fileType.opt6']}" />
-                                    <f:selectItem itemLabel="#{bundle['file.fileType.opt7']}" itemValue="#{bundle['file.fileType.opt7']}" />
+                                   <f:selectItem itemLabel="#{bundle['file.fileType.opt1.subcat1']}" itemValue="#{bundle['file.fileType.opt1.subcat1']}" />
+                                   <f:selectItem itemLabel="#{bundle['file.fileType.opt1.subcat2']}" itemValue="#{bundle['file.fileType.opt1.subcat2']}" />
+                                   <f:selectItem itemLabel="#{bundle['file.fileType.opt1.subcat3']}" itemValue="#{bundle['file.fileType.opt1.subcat3']}" />
                                 </p:selectOneMenu>
                             </div>
                         </div>
 
-                        <!-- File type subcategories -->
-                        <div class="form-horizontal">
-                            <div class="form-group text-left" jsf:rendered="#{fileMetadata.showFileTypeSubcategories}">
-                                <p:outputLabel for="fileType1Options" value="#{bundle['file.fileTypeSubcategory']}"
-                                               class="col-sm-3"
-                                               style="margin-right:1em;vertical-align:top;" />
-                                <p:selectOneMenu widgetVar="fileType1Options" id="fileType1Options" styleClass="col-sm-9 form-control"
-                                                 style="width:60%;" value="#{fileMetadata.fileTypeSubcategory}">
-                                    <f:selectItem itemLabel="#{bundle.select}" itemValue="#{null}" noSelectionOption="true" />
-                                    <f:selectItems value="#{fileMetadata.fileTypeSubcategories}" />
-                                </p:selectOneMenu>
-                            </div>
-                        </div>
+                      <!-- File type subcategories -->
+                      <div class="form-horizontal">
+                          <div class="form-group text-left subcategory3Wrapper" >
+                              <p:outputLabel for="fileType1Options3" value="#{bundle['file.fileTypeSubcategory']}"
+                                             class="col-sm-3"
+                                             style="margin-right:1em;vertical-align:top;" />
+
+                              <p:selectOneMenu widgetVar="fileType1Options3" id="fileType1Options3" styleClass="col-sm-9 form-control subcategory3"
+                                               style="width:60%;" value="#{fileMetadata.fileTypeSubcategory}">
+                                  <f:selectItem itemLabel="#{bundle.select}" itemValue="#{null}" noSelectionOption="true" />
+                                 <f:selectItem itemLabel="#{bundle['file.fileType.opt3.subcat1']}" itemValue="#{bundle['file.fileType.opt3.subcat1']}" />
+                                 <f:selectItem itemLabel="#{bundle['file.fileType.opt3.subcat2']}" itemValue="#{bundle['file.fileType.opt3.subcat2']}" />
+                                 <f:selectItem itemLabel="#{bundle['file.fileType.opt3.subcat3']}" itemValue="#{bundle['file.fileType.opt3.subcat3']}" />
+                                 <f:selectItem itemLabel="#{bundle['file.fileType.opt3.subcat4']}" itemValue="#{bundle['file.fileType.opt3.subcat4']}" />
+
+                              </p:selectOneMenu>
+                          </div>
+                      </div>
+
+                      <p:inputText value="#{fileMetadata.fileTypeSubcategory}" id="fileTypeSubcategory" type="hidden" class="hdd"/>
+
+
+                    <script>
+
+                    $( ".categoryMenu" ).change(function() {
+                      if ($(".categoryMenu" ).val() == 'Questionnaire'){
+                        $(".subcategory1Wrapper").show();
+                        PF("fileType1Options3").selectValue('');
+                        $(".subcategory3Wrapper").hide();
+                      }else if ($(".categoryMenu" ).val() == 'Data Collection Guidelines'){
+                        PF("fileType1Options1").selectValue('');
+                        $(".subcategory1Wrapper").hide();
+                        $(".subcategory3Wrapper").show();
+                      }else{
+                        PF("fileType1Options1").selectValue('');
+                        $(".subcategory1Wrapper").hide();
+                        PF("fileType1Options3").selectValue('');
+                        $(".subcategory3Wrapper").hide();
+                      }
+                    });
+                    $( ".subcategory1" ).change(function() {
+                      var value = PF("fileType1Options1").getSelectedValue();
+                      $('.hdd').val(value);
+                    });
+                    $( ".subcategory3" ).change(function() {
+                      var value = PF("fileType1Options3").getSelectedValue();
+                      $('.hdd').val(value);
+                    });
+
+
+
+                    </script>
                         
                     </p:column>
                     
@@ -950,6 +1009,16 @@
     <script src="/resources/js/dropins.js" id="dropboxjs" data-app-key="#{EditDatafilesPage.dropBoxKey}"/>
     <script>
         //<![CDATA[
+        if ($(".categoryMenu" ).val() == 'Questionnaire'){
+          $(".subcategory1Wrapper").show();
+          $(".subcategory3Wrapper").hide();
+        }else if ($(".categoryMenu" ).val() == 'Data Collection Guidelines'){
+          $(".subcategory1Wrapper").hide();
+          $(".subcategory3Wrapper").show();
+        }else{
+          $(".subcategory1Wrapper").hide();
+          $(".subcategory3Wrapper").hide();
+        }
         
         $( ".datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
        
