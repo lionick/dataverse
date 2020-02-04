@@ -486,7 +486,7 @@
                             </ui:repeat>
                         </ui:fragment>
 
-                        <ui:repeat value="#{result.highlightsAsList}" var="highlight" rendered="#{false and result.highlightsAsList.size() gt 0}">
+                        <ui:repeat value="#{result.highlightsAsList}" var="highlight" rendered="#{result.highlightsAsList.size() gt 0}">
                             <ui:repeat value="#{highlight.snippets}" var="snippet">
                                 <div>
                                     <h:outputText value="#{highlight.solrField.nameSearchable}: #{snippet}" escape="false"/>
@@ -547,7 +547,7 @@
                             </ui:repeat>
                         </ui:fragment>
 
-                        <ui:repeat value="#{result.highlightsAsList}" var="highlight" rendered="#{false and result.highlightsAsList.size() > 0}">
+                        <ui:repeat value="#{result.highlightsAsList}" var="highlight" rendered="#{result.highlightsAsList.size() > 0}">
                             <ui:repeat value="#{highlight.snippets}" var="snippet">
                                 <div>
                                     <h:outputText value="#{highlight.displayName}: #{snippet}" escape="false"/>
@@ -635,7 +635,7 @@
                             <h:outputText value="... " rendered="#{varStatus.last != true}"/>
                         </ui:repeat>
 
-                        <div jsf:rendered="#{false and result.highlightsAsList.size() > 0}">
+                        <div jsf:rendered="#{result.highlightsAsList.size() > 0}">
                             <ui:repeat value="#{result.highlightsAsList}" var="highlight">
                                 <ui:repeat value="#{highlight.snippets}" var="snippet">
                                     <div>
