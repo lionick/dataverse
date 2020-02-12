@@ -1,0 +1,18 @@
+#metadataBlock	name	dataverseAlias	displayName												
+	metadapackage		Metadata Package												
+#datasetField	name	title	description	watermark	 fieldType	displayOrder	displayFormat	advancedSearchField	allowControlledVocabulary	allowmultiples	facetable	displayoncreate	required	parent	metadatablock_id
+	mpId	MP_ID	MP_ID		text	0		FALSE	FALSE	FALSE	FALSE	TRUE	FALSE		metadapackage
+	targetVariableName	Target Variable Name	Target Variable Name		text	1		FALSE	FALSE	FALSE	FALSE	TRUE	TRUE		metadapackage
+	tVDescription	TV Description	TV Description		text	2		FALSE	FALSE	FALSE	FALSE	TRUE	TRUE		metadapackage
+	tVType	TV Type	TV Type		text	3		FALSE	TRUE	FALSE	FALSE	TRUE	TRUE		metadapackage
+	mpPublicationYear	Publication year	Publication year		int	4		FALSE	FALSE	FALSE	FALSE	TRUE	FALSE		metadapackage
+	relevantLinksAndBibliography	Relevant links & Bibliography	Relevant links & Bibliography		textbox	5		FALSE	FALSE	FALSE	FALSE	TRUE	TRUE		metadapackage
+	mpComments	Comments	Comments		textbox	6		FALSE	FALSE	FALSE	FALSE	TRUE	FALSE		metadapackage
+	sourceVariable	Source Variable	Source Variable		none	7		FALSE	FALSE	TRUE	FALSE	TRUE	FALSE		metadapackage
+	sourceVariableName	Source Variable Name	Source Variable Name		text	8		FALSE	FALSE	FALSE	FALSE	TRUE	TRUE	sourceVariable	metadapackage
+	sourceVariableDescription	Source Variable Description	Source Variable Description		text	9		FALSE	FALSE	FALSE	FALSE	TRUE	FALSE	sourceVariable	metadapackage
+	mpQuestion	Question	Question		text	10		FALSE	FALSE	FALSE	FALSE	TRUE	FALSE	sourceVariable	metadapackage
+	mpSvComments	Comments	Comments		text	11		FALSE	FALSE	FALSE	FALSE	TRUE	FALSE	sourceVariable	metadapackage
+#controlledVocabulary	DatasetField	Value	identifier	displayOrder											
+	tVType	Classification		0											
+	tVType	Index		1											
