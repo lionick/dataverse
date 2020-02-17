@@ -5063,6 +5063,18 @@ public class DatasetPage implements java.io.Serializable {
         return cachedTools;
     }
 
+    public String getDatasetFieldTypeVersion() {
+        String version = "";
+
+        for (DatasetField df : workingVersion.getDatasetFields()) {
+            if (df.getDatasetFieldType().getName().equals("datasetVersion")) {
+                version = df.getValue();
+            }
+        }
+
+        return version;
+    }
+
     Boolean thisLatestReleasedVersion = null;
     
     public boolean isThisLatestReleasedVersion() {
