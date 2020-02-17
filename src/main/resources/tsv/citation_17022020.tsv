@@ -1,0 +1,25 @@
+#metadataBlock	name	dataverseAlias	displayName	blockURI												
+	citation		Citation Metadata	https://dataverse.org/schema/citation/												
+#datasetField	name	title	description	watermark	 fieldType	displayOrder	displayFormat	advancedSearchField	allowControlledVocabulary	allowmultiples	facetable	displayoncreate	required	parent	metadatablock_id	termURI
+	contributorType	Role	The role of contributor of the  resource.  		text	44	#VALUE 	TRUE	TRUE	FALSE	TRUE	FALSE	FALSE	contributor	citation	
+	contributorAffiliation	Affiliation	Contributor affiliation		text	46	(#VALUE)	FALSE	FALSE	FALSE	FALSE	FALSE	FALSE	contributor	citation	
+#controlledVocabulary	DatasetField	Value	identifier	displayOrder												
+	contributorType	Contributing Author		0												
+	contributorType	Data Collector		1												
+	contributorType	Data Curator		2												
+	contributorType	Data Entry		3												
+	contributorType	Data Manager		4												
+	contributorType	Editor		5												
+	contributorType	Funder		6												
+	contributorType	Hosting Institution		7												
+	contributorType	Project Leader		8												
+	contributorType	Project Manager		9												
+	contributorType	Project Member		10												
+	contributorType	Related Person		11												
+	contributorType	Researcher		12												
+	contributorType	Research Group		13												
+	contributorType	Rights Holder		14												
+	contributorType	Sponsor		15												
+	contributorType	Supervisor		16												
+	contributorType	Work Package Leader		17												
+	contributorType	Other		18												
