@@ -757,13 +757,25 @@ public class DataCitation {
         if (!dsv.getDataset().isHarvested()) {
             if (dsv.isDraft()) {
                 version = BundleUtil.getStringFromBundle("draftversion");
-            } else if (dsv.getVersionNumber() != null) {
-                version = "V" + dsv.getVersionNumber();
+            } else if (!getVersionFromDatasetFieldType(dsv).isEmpty()) {
+                version = "V" + getVersionFromDatasetFieldType(dsv);
                 if (dsv.isDeaccessioned()) {
                     version += ", "+ BundleUtil.getStringFromBundle("deaccessionedversion");
                 }
             }
         }
+        return version;
+    }
+
+    private String getVersionFromDatasetFieldType (DatasetVersion dsv) {
+        String version = "";
+
+        for (DatasetField df : dsv.getDatasetFields()) {
+            if (df.getDatasetFieldType().getName().equals("datasetVersion")) {
+                version = df.getValue();
+            }
+        }
+
         return version;
     }
 
