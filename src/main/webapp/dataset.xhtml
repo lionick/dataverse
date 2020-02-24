@@ -730,7 +730,10 @@
                                 </ui:include>
                             </p:tab>
                             <!-- 4.2.1: see above -->
-                            <p:tab id="versionsTab" title="#{bundle['file.dataFilesTab.versions']}" rendered="#{false}">
+                            <p:tab id="versionsTab" title="#{bundle['file.dataFilesTab.versions']}"
+                                rendered="#{DatasetPage.sessionUserAuthenticated
+                                                and DatasetPage.canUpdateDataset()
+                                                and !DatasetPage.dataset.deaccessioned}">
                                 <ui:include src="dataset-versions.xhtml"></ui:include>
                             </p:tab>
                         </p:tabView>
