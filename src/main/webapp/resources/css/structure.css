@@ -207,7 +207,7 @@ span.glyphicon-question-sign.tooltip-icon:hover {color: #337AB7 !important;}
 }
 
 /* -------- HEADER -------- */
-#dataverse-header-block {padding-top:50px;}
+#dataverse-header-block {padding-top:90px;}
 body.widget-view #dataverse-header-block {padding-top:0px;}
 #dataverseHeader {margin:0 auto;}
 #dataverseHeader .dataverseHeaderBlock {display:table-row;}
