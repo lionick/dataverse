@@ -1520,7 +1520,7 @@
                         <div id="terms-agreement-block" class="well" jsf:rendered="#{DatasetPage.datasetPublishCustomText.length() > 0 and DatasetPage.isDatasetPublishPopupCustomTextOnAllVersions()}">
                             <h:outputText value="#{MarkupChecker:sanitizeBasicHTML(DatasetPage.datasetPublishCustomText)}" escape="false"/>
                         </div>
-                        <ui:fragment rendered="#{DatasetPage.dataset.latestVersion.minorUpdate}">
+                        <ui:fragment>
                             <p:selectOneRadio id="options" value="#{DatasetPage.releaseRadio}">
                                 <f:selectItem itemLabel="#{bundle['dataset.saveChanges']}" itemValue="2" />
                             </p:selectOneRadio>
