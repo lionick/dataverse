@@ -1,0 +1,56 @@
+#metadataBlock	name	dataverseAlias	displayName	blockURI												
+	citation		Citation Metadata	https://dataverse.org/schema/citation/												
+#datasetField	name	title	description	watermark	 fieldType	displayOrder	displayFormat	advancedSearchField	allowControlledVocabulary	allowmultiples	facetable	displayoncreate	required	parent	metadatablock_id	termURI
+	contributorType	Role	The role of contributor of the  resource.  		text	44	#VALUE 	TRUE	TRUE	FALSE	TRUE	FALSE	FALSE	contributor	citation	
+#controlledVocabulary	DatasetField	Value	identifier	displayOrder												
+	contributorType	Project/Study design		0												
+	contributorType	Project/Study design: Conceptualization		1												
+	contributorType	Project/Study design: Instrument design		2												
+	contributorType	Project/Study design: Methodology development		3												
+	contributorType	Project/Study design: Weights design		4												
+	contributorType	Project/Study design: Standards development		5												
+	contributorType	Project/Study design: Data modeling		6												
+	contributorType	Project/Study design: Sampling design		7												
+	contributorType	Data management		8												
+	contributorType	Ethics review		9												
+	contributorType	Data collection		10												
+	contributorType	Sample selection		11												
+	contributorType	Data entry		12												
+	contributorType	Data processing		13												
+	contributorType	Data processing: Disclosure control		14												
+	contributorType	Data processing: Data aggregation		15												
+	contributorType	Data processing: Data integration		16												
+	contributorType	Data processing: Data validation		17												
+	contributorType	Data acquisition		18												
+	contributorType	Metadata production		19												
+	contributorType	Data distribution		20												
+	contributorType	Data hosting		21												
+	contributorType	Long-term preservation/archiving		22												
+	contributorType	Consulting		23												
+	contributorType	Contact		24												
+	contributorType	Data analysis		25												
+	contributorType	Editing		26												
+	contributorType	Equipment development		27												
+	contributorType	Evaluation		28												
+	contributorType	Funding provision		29												
+	contributorType	Funding/sponsorship acquisition		30												
+	contributorType	Sponsorship		31												
+	contributorType	Graphic design		32												
+	contributorType	Project operations		33												
+	contributorType	Project operations: Project leader		34												
+	contributorType	Project operations: Project manager		35												
+	contributorType	Project operations: Project member		36												
+	contributorType	Promotion		37												
+	contributorType	Registration authority		38												
+	contributorType	Researcher		39												
+	contributorType	Research group		40												
+	contributorType	Rights holding		41												
+	contributorType	Rights management		42												
+	contributorType	Software development		43												
+	contributorType	Supervision		44												
+	contributorType	Training		45												
+	contributorType	Translation		46												
+	contributorType	User support		47												
+	contributorType	Visualization		48												
+	contributorType	Website development		49												
+	contributorType	Other		50												
