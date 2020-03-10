@@ -1,0 +1,61 @@
+#metadataBlock	name	dataverseAlias	displayName	blockURI												
+	citation		Citation Metadata	https://dataverse.org/schema/citation/												
+#datasetField	name	title	description	watermark	 fieldType	displayOrder	displayFormat	advancedSearchField	allowControlledVocabulary	allowmultiples	facetable	displayoncreate	required	parent	metadatablock_id	termURI
+	softwareName	Name	Name of software used to generate the Dataset.		text	69	#VALUE	FALSE	TRUE	FALSE	FALSE	FALSE	FALSE	software	citation	
+#controlledVocabulary	DatasetField	Value	identifier	displayOrder												
+	softwareName	AcaStat		0												
+	softwareName	ADaMSoft		1												
+	softwareName	Analyse-it		2												
+	softwareName	ATLAS.ti		3												
+	softwareName	Auguri		4												
+	softwareName	BioStat		5												
+	softwareName	BMDP		6												
+	softwareName	BrightStat		7												
+	softwareName	CATMA		8												
+	softwareName	Dataplot		9												
+	softwareName	DBase		10												
+	softwareName	Dedoose		11												
+	softwareName	DIF		12												
+	softwareName	EasyReg		13												
+	softwareName	Epi Info		14												
+	softwareName	EViews		15												
+	softwareName	GAUSS		16												
+	softwareName	Golden Helix		17												
+	softwareName	GraphPad Prism		18												
+	softwareName	gretl		19												
+	softwareName	JMP		20												
+	softwareName	Limdep		21												
+	softwareName	MacAnova		22												
+	softwareName	Maple		23												
+	softwareName	Mathematica		24												
+	softwareName	MatLab		25												
+	softwareName	MAXQDA		26												
+	softwareName	MedCalc		27												
+	softwareName	Minitab		28												
+	softwareName	modelQED		29												
+	softwareName	NCSS		30												
+	softwareName	NSDStat		31												
+	softwareName	Nvivo		32												
+	softwareName	Quirkos		33												
+	softwareName	OpenEpi		34												
+	softwareName	Origin		35												
+	softwareName	Partek		36												
+	softwareName	Primer		37												
+	softwareName	PSPP		38												
+	softwareName	R Commander		39												
+	softwareName	R		40												
+	softwareName	RATS		41												
+	softwareName	RKWard		42												
+	softwareName	RQDA		43												
+	softwareName	SalStat		44												
+	softwareName	SAS		45												
+	softwareName	Shazam		46												
+	softwareName	SOCR		47												
+	softwareName	SPlus		48												
+	softwareName	SPSS		49												
+	softwareName	Stata		50												
+	softwareName	Statistica		51												
+	softwareName	SUDAAN		52												
+	softwareName	Taguette		53												
+	softwareName	TSP		54												
+	softwareName	Other		55												
