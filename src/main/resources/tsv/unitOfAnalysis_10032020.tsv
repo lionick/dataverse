@@ -1,0 +1,23 @@
+#metadataBlock	name	dataverseAlias	displayName	blockURI												
+	citation		Citation Metadata	https://dataverse.org/schema/citation/												
+#datasetField	name	title	description	watermark	 fieldType	displayOrder	displayFormat	advancedSearchField	allowControlledVocabulary	allowmultiples	facetable	displayoncreate	required	parent	metadatablock_id	termURI
+	unitOfAnalysis	Unit of Analysis	Basic unit of analysis or observation that this Dataset describes, such as individuals, families/households, groups, institutions/organizations, administrative units, and more. For information about the DDI's controlled vocabulary for this element, please refer to the DDI web page at http://www.ddialliance.org/controlled-vocabularies.		text	19		TRUE	TRUE	TRUE	TRUE	FALSE	FALSE		socialscience	https://vocabularies.cessda.eu/#!detail/AnalysisUnit
+#controlledVocabulary	DatasetField	Value	identifier	displayOrder												
+	unitOfAnalysis	Individual	Individual	0												
+	unitOfAnalysis	Organization/Institution	OrganizationOrInstitution	1												
+	unitOfAnalysis	Family	Family	2												
+	unitOfAnalysis	Family: Household family	Family.HouseholdFamily	3												
+	unitOfAnalysis	Household	Household	4												
+	unitOfAnalysis	Housing unit	HousingUnit	5												
+	unitOfAnalysis	Event/Process/Activity	EventOrProcessOrActivity	6												
+	unitOfAnalysis	Geographic unit	GeographicUnit	7												
+	unitOfAnalysis	Political-administrative area	PoliticalAdministrativeArea	8												
+	unitOfAnalysis	Time unit	TimeUnit	9												
+	unitOfAnalysis	Media unit	MediaUnit	10												
+	unitOfAnalysis	Media unit: Sound	MediaUnit.Sound	11												
+	unitOfAnalysis	Media unit: Still image	MediaUnit.StillImage	12												
+	unitOfAnalysis	Media unit: Text	MediaUnit.Text	13												
+	unitOfAnalysis	Media unit: Video	MediaUnit.Video	14												
+	unitOfAnalysis	Group	Group	15												
+	unitOfAnalysis	Object	Object	16												
+	unitOfAnalysis	Other	Other	17												
