@@ -1,0 +1,233 @@
+#metadataBlock	name	dataverseAlias	displayName	blockURI
+	citation		Citation Metadata	https://dataverse.org/schema/citation/
+#datasetField	name	title	description	watermark	 fieldType	displayOrder	displayFormat	advancedSearchField	allowControlledVocabulary	allowmultiples	facetable	displayoncreate	required	parent	metadatablock_id	termURI
+	internalStudyId	Internal Study ID	The internal ID of the study.	Enter study ID...	text	5		FALSE	FALSE	FALSE	FALSE	TRUE	FALSE		citation
+	unitOfAnalysis	Unit of Analysis	Basic unit of analysis or observation that this Dataset describes, such as individuals, families/households, groups, institutions/organizations, administrative units, and more. For information about the DDI's controlled vocabulary for this element, please refer to the DDI web page at http://www.ddialliance.org/controlled-vocabularies.		text	19		TRUE	TRUE	TRUE	TRUE	FALSE	FALSE		socialscience	https://vocabularies.cessda.eu/#!detail/AnalysisUnit
+	researchInstrument	Type of Research Instrument	Type of data collection instrument used. Structured indicates an instrument in which all respondents are asked the same questions/tests, possibly with precoded answers. If a small portion of such a questionnaire includes open-ended questions, provide appro (…)		text	12		FALSE	TRUE	TRUE	FALSE	FALSE	FALSE		socialscience	https://vocabularies.cessda.eu/#!detail/TypeOfInstrument
+	samplingProcedure	Sampling Procedure	Type of sample and sample design used to select the survey respondents to represent the population. May include reference to the target sample size and the sampling fraction.		textbox	6		FALSE	TRUE	TRUE	FALSE	FALSE	FALSE		socialscience	https://vocabularies.cessda.eu/#!detail/SamplingProcedure
+	samplingProcedureDetails	Sampling Procedure Details	Details about the type of sample and sample design used to select the survey respondents to represent the population. May include reference to the target sample size and the sampling fraction.		text	78		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE		socialscience
+	collectionMode	Collection Mode	Method used to collect the data; instrumentation characteristics (e.g., telephone interview, mail questionnaire, or other).		textbox	11		FALSE	TRUE	TRUE	FALSE	FALSE	FALSE		socialscience	https://vocabularies.cessda.eu/#!detail/ModeOfCollection
+	timeMethod	Time Method	The time method or time dimension of the data collection, such as panel, cross-sectional, trend, time- series, or other.		text	2		TRUE	TRUE	TRUE	TRUE	FALSE	FALSE		socialscience	https://vocabularies.cessda.eu/#!detail/TimeMethod
+	topicTaxon	Topic Classification	The classification field indicates the broad important topic(s) and subjects that the data cover. Library of Congress subject terms may be used here.  		none	24		FALSE	TRUE	TRUE	FALSE	FALSE	FALSE		citation	https://vocabularies.cessda.eu/#!detail/TopicClassification
+	dataSources	Data Sources	List of books, articles, serials, or machine-readable data files that served as the sources of the data collection.		textbox	74		FALSE	TRUE	TRUE	FALSE	FALSE	FALSE		citation	https://vocabularies.cessda.eu/#!detail/DataSourceType
+	topicClassification	Topic Classification	The classification field indicates the broad important topic(s) and subjects that the data cover. Library of Congress subject terms may be used here.  		none	24		FALSE	FALSE	TRUE	FALSE	FALSE	FALSE		biomedical
+	topicClassValue	Term	Topic or Subject term that is relevant to this Dataset.		text	25	#VALUE	TRUE	FALSE	FALSE	TRUE	FALSE	FALSE	topicClassification	biomedical
+	topicClassVocab	Vocabulary	Provided for specification of the controlled vocabulary in use, e.g., LCSH, MeSH, etc.		text	26	(#VALUE)	FALSE	FALSE	FALSE	FALSE	FALSE	FALSE	topicClassification	biomedical
+	topicClassVocabURI	Vocabulary URL	Specifies the URL location for the full controlled vocabulary.	Enter full URL, starting with http://	url	27	<a href="#VALUE" target="_blank">#VALUE</a>	FALSE	FALSE	FALSE	FALSE	FALSE	FALSE	topicClassification	biomedical
+#controlledVocabulary	DatasetField	Value	identifier	displayOrder
+	unitOfAnalysis	Individual	Individual	0
+	unitOfAnalysis	Organization	Organization	1
+	unitOfAnalysis	Family	Family	2
+	unitOfAnalysis	Family:Household family	Family.HouseholdFamily	3
+	unitOfAnalysis	Household	Household	4
+	unitOfAnalysis	Housing Unit	HousingUnit	5
+	unitOfAnalysis	Event/Process	EventOrProcess	6
+	unitOfAnalysis	Geographic Unit	GeographicUnit	7
+	unitOfAnalysis	Time Unit	TimeUnit	8
+	unitOfAnalysis	Text Unit	TextUnit	9
+	unitOfAnalysis	Group	Group	10
+	unitOfAnalysis	Object	Object	11
+	unitOfAnalysis	Other	Other	12
+	researchInstrument	Questionnaire	Questionnaire	13
+	researchInstrument	Structured questionnaire	Questionnaire.Structured	14
+	researchInstrument	Semi-structured questionnaire	Questionnaire.Semistructured	15
+	researchInstrument	Unstructured questionnaire	Questionnaire.Unstructured	16
+	researchInstrument	Interview scheme and/or themes	InterviewSchemeAndThemes	17
+	researchInstrument	Data collection guidelines	DataCollectionGuidelines	18
+	researchInstrument	Data collection guidelines: Observation guide	DataCollectionGuidelines.ObservationGuide	19
+	researchInstrument	Data collection guidelines: Discussion guide	DataCollectionGuidelines.DiscussionGuide	20
+	researchInstrument	Data collection guidelines: Self-administered writings guide	DataCollectionGuidelines.SelfAdministeredWritingsGuide	21
+	researchInstrument	Data collection guidelines: Secondary data collection guide	DataCollectionGuidelines.SecondaryDataCollectionGuide	22
+	researchInstrument	Participant tasks	ParticipantTasks	23
+	researchInstrument	Technical instrument(s)	TechnicalInstruments	24
+	researchInstrument	Programming script	ProgrammingScript	25
+	researchInstrument	Other	Other	26
+	samplingProcedure	Total universe/Complete enumeration	TotalUniverseCompleteEnumeration	27
+	samplingProcedure	Probability	Probability	28
+	samplingProcedure	Probability: Simple random	Probability.SimpleRandom	29
+	samplingProcedure	Probability: Systematic random	Probability.SystematicRandom	30
+	samplingProcedure	Probability: Stratified	Probability.Stratified	31
+	samplingProcedure	Probability: Stratified: Proportional	Probability.Stratified.Proportional	32
+	samplingProcedure	Probability: Stratified: Disproportional	Probability.Stratified.Disproportional	33
+	samplingProcedure	Probability: Cluster	Probability.Cluster	34
+	samplingProcedure	Probability: Cluster: Simple random	Probability.Cluster.SimpleRandom	35
+	samplingProcedure	Probability: Cluster: Stratified random	Probability.Cluster.StratifiedRandom	36
+	samplingProcedure	Probability: Multistage	Probability.Multistage	37
+	samplingProcedure	Non-probability	Nonprobability	38
+	samplingProcedure	Non-probability: Availability	Nonprobability.Availability	39
+	samplingProcedure	Non-probability: Purposive	Nonprobability.Purposive	40
+	samplingProcedure	Non-probability: Quota	Nonprobability.Quota	41
+	samplingProcedure	Non-probability: Respondent-assisted	Nonprobability.RespondentAssisted	42
+	samplingProcedure	Mixed probability and non-probability	MixedProbabilityNonprobability	43
+	samplingProcedure	Other	Other	44
+	collectionMode	Interview	Interview	45
+	collectionMode	Face-to-face interview	Interview.FaceToFace	46
+	collectionMode	Face-to-face interview: Computer-assisted (CAPI/CAMI)	Interview.FaceToFace.CAPIorCAMI	47
+	collectionMode	Face-to-face interview: Paper-and-pencil (PAPI)	Interview.FaceToFace.PAPI	48
+	collectionMode	Telephone interview	Interview.Telephone	49
+	collectionMode	Telephone interview: Computer-assisted (CATI)	Interview.Telephone.CATI	50
+	collectionMode	E-mail interview	Interview.Email	51
+	collectionMode	Web-based interview	Interview.WebBased	52
+	collectionMode	Self-administered questionnaire	SelfAdministeredQuestionnaire	53
+	collectionMode	Self-administered questionnaire: E-mail	SelfAdministeredQuestionnaire.Email	54
+	collectionMode	Self-administered questionnaire: Paper	SelfAdministeredQuestionnaire.Paper	55
+	collectionMode	Self-administered questionnaire: Messaging (SMS/MMS)	SelfAdministeredQuestionnaire.SMSorMMS	56
+	collectionMode	Self-administered questionnaire: Web-based (CAWI)	SelfAdministeredQuestionnaire.CAWI	57
+	collectionMode	Self-administered questionnaire: Computer-assisted (CASI)	SelfAdministeredQuestionnaire.CASI	58
+	collectionMode	Focus group	FocusGroup	59
+	collectionMode	Face-to-face focus group	FocusGroup.FaceToFace	60
+	collectionMode	Telephone focus group	FocusGroup.Telephone	61
+	collectionMode	Online focus group	FocusGroup.Online	62
+	collectionMode	Self-administered writings and/or diaries	SelfAdministeredWritingsAndDiaries	63
+	collectionMode	Self-administered writings and/or diaries: E-mail	SelfAdministeredWritingsAndDiaries.Email	64
+	collectionMode	Self-administered writings and/or diaries: Paper	SelfAdministeredWritingsAndDiaries.Paper	65
+	collectionMode	Self-administered writings and/or diaries: Web-based	SelfAdministeredWritingsAndDiaries.WebBased	66
+	collectionMode	Observation	Observation	67
+	collectionMode	Field observation	Observation.Field	68
+	collectionMode	Participant field observation	Observation.Field.Participant	69
+	collectionMode	Non-participant field observation	Observation.Field.Nonparticipant	70
+	collectionMode	Laboratory observation	Observation.Laboratory	71
+	collectionMode	Participant laboratory observation	Observation.Laboratory.Participant	72
+	collectionMode	Non-participant laboratory observation	Observation.Laboratory.Nonparticipant	73
+	collectionMode	Computer-based observation	Observation.ComputerBased	74
+	collectionMode	Experiment	Experiment	75
+	collectionMode	Laboratory experiment	Experiment.Laboratory	76
+	collectionMode	Field/Intervention experiment	Experiment.FieldIntervention	77
+	collectionMode	Web-based experiment	Experiment.WebBased	78
+	collectionMode	Recording	Recording	79
+	collectionMode	Content coding	ContentCoding	80
+	collectionMode	Transcription	Transcription	81
+	collectionMode	Compilation/Synthesis	CompilationSynthesis	82
+	collectionMode	Summary	Summary	83
+	collectionMode	Aggregation	Aggregation	84
+	collectionMode	Simulation	Simulation	85
+	collectionMode	Measurements and tests	MeasurementsAndTests	86
+	collectionMode	Educational measurements and tests	MeasurementsAndTests.Educational	87
+	collectionMode	Physical measurements and tests	MeasurementsAndTests.Physical	88
+	collectionMode	Psychological measurements and tests	MeasurementsAndTests.Psychological	89
+	collectionMode	Other	Other	90
+	timeMethod	Longitudinal	Longitudinal	91
+	timeMethod	Longitudinal: Cohort/Event-based	Longitudinal.CohortEventBased	92
+	timeMethod	Longitudinal: Trend/Repeated cross-section	Longitudinal.TrendRepeatedCrossSection	93
+	timeMethod	Longitudinal: Panel	Longitudinal.Panel	94
+	timeMethod	Longitudinal: Panel: Continuous	Longitudinal.Panel.Continuous	95
+	timeMethod	Longitudinal: Panel: Interval	Longitudinal.Panel.Interval	96
+	timeMethod	Time series	TimeSeries	97
+	timeMethod	Time series: Continuous	TimeSeries.Continuous	98
+	timeMethod	Time series: Discrete	TimeSeries.Discrete	99
+	timeMethod	Cross-section	CrossSection	100
+	timeMethod	Cross-section ad-hoc follow-up	CrossSectionAdHocFollowUp	101
+	timeMethod	Other	Other	102
+	topicTaxon	DEMOGRAPHY (POPULATION, VITAL STATISTICS, AND CENSUSES)	Demography	103
+	topicTaxon	Migration	Demography.Migration	104
+	topicTaxon	Morbidity and mortality	Demography.MorbidityAndMortality	105
+	topicTaxon	ECONOMICS	Economics	106
+	topicTaxon	Consumption and consumer behaviour	Economics.ConsumptionAndConsumerBehaviour	107
+	topicTaxon	Economic conditions and indicators	Economics.EconomicConditionsAndIndicators	108
+	topicTaxon	Economic systems and development	Economics.EconomicSystemsAndDevelopment	109
+	topicTaxon	EDUCATION	Education	110
+	topicTaxon	Compulsory and pre-school education	Education.CompulsoryAndPreschoolEducation	111
+	topicTaxon	Educational policy	Education.EducationalPolicy	112
+	topicTaxon	Higher and further education	Education.HigherAndFurtherEducation	113
+	topicTaxon	Life-long/continuing education	Education.LifelongContinuingEducation	114
+	topicTaxon	Vocational education and training	Education.VocationalEducationAndTraining	115
+	topicTaxon	HEALTH	Health	116
+	topicTaxon	Diet and nutrition	Health.DietAndNutrition	117
+	topicTaxon	General health and well-being	Health.GeneralHealthAndWellbeing	118
+	topicTaxon	Health care services and policies	Health.HealthCareServicesAndPolicies	119
+	topicTaxon	Medication and treatment	Health.MedicationAndTreatment	120
+	topicTaxon	Occupational health	Health.OccupationalHealth	121
+	topicTaxon	Physical fitness and exercise	Health.PhysicalFitnessAndExercise	122
+	topicTaxon	Public health	Health.PublicHealth	123
+	topicTaxon	Reproductive health	Health.ReproductiveHealth	124
+	topicTaxon	Signs and symptoms; pathological conditions	Health.SignsAndSymptomsPathologicalConditions	125
+	topicTaxon	Specific diseases, disorders and medical conditions	Health.SpecificDiseasesDisordersAndMedicalConditions	126
+	topicTaxon	Wounds and injuries	Health.WoundsAndInjuries	127
+	topicTaxon	HISTORY	History	128
+	topicTaxon	HOUSING AND LAND USE	HousingAndLandUse	129
+	topicTaxon	Housing	HousingAndLandUse.Housing	130
+	topicTaxon	Land use and planning	HousingAndLandUse.LandUseAndPlanning	131
+	topicTaxon	LABOUR AND EMPLOYMENT	LabourAndEmployment	132
+	topicTaxon	Employee training	LabourAndEmployment.EmployeeTraining	133
+	topicTaxon	Employment	LabourAndEmployment.Employment	134
+	topicTaxon	Labour and employment policy	LabourAndEmployment.LabourAndEmploymentPolicy	135
+	topicTaxon	Labour relations/conflict	LabourAndEmployment.LabourRelationsConflict	136
+	topicTaxon	Retirement	LabourAndEmployment.Retirement	137
+	topicTaxon	Unemployment	LabourAndEmployment.Unemployment	138
+	topicTaxon	Working conditions	LabourAndEmployment.WorkingConditions	139
+	topicTaxon	LAW, CRIME AND LEGAL SYSTEMS	LawCrimeAndLegalSystems	140
+	topicTaxon	Crime and law enforcement	LawCrimeAndLegalSystems.CrimeAndLawEnforcement	141
+	topicTaxon	Legislation and legal systems	LawCrimeAndLegalSystems.LegislationAndLegalSystems	142
+	topicTaxon	MEDIA, COMMUNICATION AND LANGUAGE	MediaCommunicationAndLanguage	143
+	topicTaxon	Information society	MediaCommunicationAndLanguage.InformationSociety	144
+	topicTaxon	Language and linguistics	MediaCommunicationAndLanguage.LanguageAndLinguistics	145
+	topicTaxon	Media	MediaCommunicationAndLanguage.Media	146
+	topicTaxon	Public relations	MediaCommunicationAndLanguage.PublicRelations	147
+	topicTaxon	NATURAL ENVIRONMENT	NaturalEnvironment	148
+	topicTaxon	Energy and natural resources	NaturalEnvironment.EnergyAndNaturalResources	149
+	topicTaxon	Environment and conservation	NaturalEnvironment.EnvironmentAndConservation	150
+	topicTaxon	Natural landscapes	NaturalEnvironment.NaturalLandscapes	151
+	topicTaxon	Plants and animals	NaturalEnvironment.PlantsAndAnimals	152
+	topicTaxon	POLITICS	Politics	153
+	topicTaxon	Conflict, security and peace	Politics.ConflictSecurityAndPeace	154
+	topicTaxon	Elections	Politics.Elections	155
+	topicTaxon	International politics and organisations	Politics.InternationalPoliticsAndOrganisations	156
+	topicTaxon	Political behaviour and attitudes	Politics.PoliticalBehaviourAndAttitudes	157
+	topicTaxon	Political ideology	Politics.PoliticalIdeology	158
+	topicTaxon	PSYCHOLOGY	Psychology	159
+	topicTaxon	SCIENCE AND TECHNOLOGY	ScienceAndTechnology	160
+	topicTaxon	Biotechnology	ScienceAndTechnology.Biotechnology	161
+	topicTaxon	Information technology	ScienceAndTechnology.InformationTechnology	162
+	topicTaxon	SOCIAL STRATIFICATION AND GROUPINGS	SocialStratificationAndGroupings	163
+	topicTaxon	Children	SocialStratificationAndGroupings.Children	164
+	topicTaxon	Elderly	SocialStratificationAndGroupings.Elderly	165
+	topicTaxon	Elites and leadership	SocialStratificationAndGroupings.ElitesAndLeadership	166
+	topicTaxon	Equality, inequality and social exclusion	SocialStratificationAndGroupings.EqualityInequalityAndSocialExclusion	167
+	topicTaxon	Family life and marriage	SocialStratificationAndGroupings.FamilyLifeAndMarriage	168
+	topicTaxon	Gender and gender roles	SocialStratificationAndGroupings.GenderAndGenderRoles	169
+	topicTaxon	Minorities	SocialStratificationAndGroupings.Minorities	170
+	topicTaxon	Social and occupational mobility	SocialStratificationAndGroupings.SocialAndOccupationalMobility	171
+	topicTaxon	Youth	SocialStratificationAndGroupings.Youth	172
+	topicTaxon	SOCIAL WELFARE POLICY AND SYSTEMS	SocialWelfarePolicyAndSystems	173
+	topicTaxon	Social welfare policy	SocialWelfarePolicyAndSystems.SocialWelfarePolicy	174
+	topicTaxon	Social welfare systems/structures	SocialWelfarePolicyAndSystems.SocialWelfareSystemsStructures	175
+	topicTaxon	Specific social services: use and availability	SocialWelfarePolicyAndSystems.SpecificSocialServicesUseAndAvailability	176
+	topicTaxon	SOCIETY AND CULTURE	SocietyAndCulture	177
+	topicTaxon	Community, urban and rural life	SocietyAndCulture.CommunityUrbanAndRuralLife	178
+	topicTaxon	Cultural activities and participation	SocietyAndCulture.CulturalActivitiesAndParticipation	179
+	topicTaxon	Cultural and national identity	SocietyAndCulture.CulturalAndNationalIdentity	180
+	topicTaxon	Leisure, tourism and sport	SocietyAndCulture.LeisureTourismAndSport	181
+	topicTaxon	Religion and values	SocietyAndCulture.ReligionAndValues	182
+	topicTaxon	Social behaviour and attitudes	SocietyAndCulture.SocialBehaviourAndAttitudes	183
+	topicTaxon	Social change	SocietyAndCulture.SocialChange	184
+	topicTaxon	Social conditions and indicators	SocietyAndCulture.SocialConditionsAndIndicators	185
+	topicTaxon	Time use	SocietyAndCulture.TimeUse	186
+	topicTaxon	TRADE, INDUSTRY AND MARKETS	TradeIndustryAndMarkets	187
+	topicTaxon	Agriculture and rural industry	TradeIndustryAndMarkets.AgricultureAndRuralIndustry	188
+	topicTaxon	Business/industrial management and organisation	TradeIndustryAndMarkets.BusinessIndustrialManagementAndOrganisation	189
+	topicTaxon	Foreign trade	TradeIndustryAndMarkets.ForeignTrade	190
+	topicTaxon	TRANSPORT AND TRAVEL	TransportAndTravel	191
+	topicTaxon	OTHER	Other	192
+	dataSources	Registers/Records/Accounts	RegistersRecordsAccounts	193
+	dataSources	Registers/Records/Accounts: Administrative	RegistersRecordsAccounts.Administrative	194
+	dataSources	Registers/Records/Accounts: Historical	RegistersRecordsAccounts.Historical	195
+	dataSources	Registers/Records/Accounts: Legal	RegistersRecordsAccounts.Legal	196
+	dataSources	Registers/Records/Accounts: Medical/Clinical	RegistersRecordsAccounts.MedicalClinical	197
+	dataSources	Registers/Records/Accounts: Academic/Aptitude	RegistersRecordsAccounts.AcademicAptitude	198
+	dataSources	Registers/Records/Accounts: Economic/Financial	RegistersRecordsAccounts.EconomicFinancial	199
+	dataSources	Registers/Records/Accounts: Personal	RegistersRecordsAccounts.Personal	200
+	dataSources	Registers/Records/Accounts: Voting results	RegistersRecordsAccounts.VotingResults	201
+	dataSources	Events/Interactions	EventsInteractions	202
+	dataSources	Processes	Processes	203
+	dataSources	Processes: Workflow(s)	Processes.Workflows	204
+	dataSources	Communications	Communications	205
+	dataSources	Communications: Public	Communications.Public	206
+	dataSources	Communications: Interpersonal	Communications.Interpersonal	207
+	dataSources	Research data	ResearchData	208
+	dataSources	Research data: Published	ResearchData.Published	209
+	dataSources	Research data: Unpublished	ResearchData.Unpublished	210
+	dataSources	Population group	PopulationGroup	211
+	dataSources	Geographic area	GeographicArea	212
+	dataSources	Physical objects	PhysicalObjects	213
+	dataSources	Biological samples	BiologicalSamples	214
+	dataSources	Other	Other	215
