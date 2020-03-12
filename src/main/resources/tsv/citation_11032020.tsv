@@ -1,0 +1,12 @@
+#metadataBlock	name	dataverseAlias	displayName	blockURI												
+	citation		Citation Metadata	https://dataverse.org/schema/citation/												
+#datasetField	name	title	description	watermark	 fieldType	displayOrder	displayFormat	advancedSearchField	allowControlledVocabulary	allowmultiples	facetable	displayoncreate	required	parent	metadatablock_id	termURI
+	publisher	Publisher	The publisher		text	8		FALSE	TRUE	FALSE	FALSE	FALSE	FALSE		citation	
+#controlledVocabulary	DatasetField	Value	identifier	displayOrder												
+	publisher	SoDaNet - AEGEAN		0												
+	publisher	SoDaNet - DUTH		1												
+	publisher	SoDaNet - EKKE		2												
+	publisher	SoDaNet - EKPA		3												
+	publisher	SoDaNet - PANTEION		4												
+	publisher	SoDaNet - PAPEL		5												
+	publisher	SoDaNet – UOC		6												
