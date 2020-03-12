@@ -242,7 +242,7 @@ public class SearchIncludeFragment implements java.io.Serializable {
                 sortOrder = SortOrder.desc;
             }
             if (selectedTypesString == null || selectedTypesString.isEmpty()) {
-                selectedTypesString = "dataverses:datasets";
+                selectedTypesString = "datasets";
             }
         } else if (mode.equals(searchModeString)) {
             queryToPassToSolr = query;
@@ -253,7 +253,7 @@ public class SearchIncludeFragment implements java.io.Serializable {
                 sortOrder = SortOrder.desc;
             }
             if (selectedTypesString == null || selectedTypesString.isEmpty()) {
-                selectedTypesString = "dataverses:datasets:files";
+                selectedTypesString = "datasets:files";
             }
         }
 
