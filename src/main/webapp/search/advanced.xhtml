@@ -28,69 +28,6 @@
                         <div class="button-block margin-bottom">
                             <p:commandButton styleClass="btn btn-default" value="#{bundle.find}" action="#{AdvancedSearchPage.find()}"/>
                         </div>
-                        <div class="panel panel-default">
-                            <div data-toggle="collapse" data-target="#panelCollapseDataversesFieldList" class="panel-heading">
-                                <h:outputText value="#{bundle['advanced.search.header.dataverses']}"/> &#160;<span class="glyphicon glyphicon-chevron-up"/>
-                            </div>
-                            <div id="panelCollapseDataversesFieldList" class="panel-body form-horizontal collapse in">
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">
-                                        #{bundle.name}
-                                        <span class="glyphicon glyphicon-question-sign tooltip-icon"
-                                              data-toggle="tooltip" data-placement="auto right" data-original-title="#{bundle['advanced.search.dataverses.name.tip']}"></span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <p:inputText id="dvFieldName" styleClass="form-control" value="#{AdvancedSearchPage.dvFieldName}"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">
-                                        #{bundle.identifier}
-                                        <span class="glyphicon glyphicon-question-sign tooltip-icon"
-                                              data-toggle="tooltip" data-placement="auto right" data-original-title="#{bundle['dataverse.identifier.title']}"></span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <p:inputText id="dvFieldAlias" styleClass="form-control" value="#{AdvancedSearchPage.dvFieldAlias}"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">
-                                        #{bundle.affiliation}
-                                        <span class="glyphicon glyphicon-question-sign tooltip-icon"
-                                              data-toggle="tooltip" data-placement="auto right" data-original-title="#{bundle['advanced.search.dataverses.affiliation.tip']}"></span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <p:inputText id="dvFieldAffiliation" styleClass="form-control" value="#{AdvancedSearchPage.dvFieldAffiliation}"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">
-                                        #{bundle.description}
-                                        <span class="glyphicon glyphicon-question-sign tooltip-icon"
-                                              data-toggle="tooltip" data-placement="auto right" data-original-title="#{bundle['advanced.search.dataverses.description.tip']}"></span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <p:inputText id="dvFieldDescription" styleClass="form-control" value="#{AdvancedSearchPage.dvFieldDescription}"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">
-                                        #{bundle.subject}
-                                        <span class="glyphicon glyphicon-question-sign tooltip-icon"
-                                              data-toggle="tooltip" data-placement="auto right" data-original-title="#{bundle['advanced.search.dataverses.subject.tip']}"></span>
-                                    </label>
-                                    <div class="col-sm-6">
-                                        <div class="ui-inputfield form-control select-scroll-block">
-                                            <p:selectManyCheckbox value="#{AdvancedSearchPage.dvFieldSubject}" layout="pageDirection">
-                                                <f:selectItems value="#{AdvancedSearchPage.dvFieldSubjectValues}" var="cvv"
-                                                               itemLabel="#{cvv.localeStrValue}" itemValue="#{cvv.strValue}"/>
-                                            </p:selectManyCheckbox>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <ui:repeat value="#{AdvancedSearchPage.metadataBlocks}" var="mdb" varStatus="status">
                             <div class="panel panel-default" jsf:rendered="#{not empty AdvancedSearchPage.metadataFieldMap.get(mdb.getId())}">
                                 <div data-toggle="collapse" data-target="#panelCollapseCitationFieldList#{mdb.id}" class="panel-heading">
