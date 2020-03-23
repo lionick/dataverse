@@ -96,6 +96,12 @@ public class FileMetadata implements Serializable {
 
     @Expose
     private String title = "";
+
+    @Expose
+    private String columnVariableStored;
+
+    @Transient
+    private String[] columnVariables;
     
     /**
      * At the FileMetadata level, "restricted" is a historical indication of the
@@ -144,6 +150,7 @@ public class FileMetadata implements Serializable {
         fmd.setFileType(getFileType());
         fmd.setFileTypeSubcategory(getFileTypeSubcategory());
         fmd.setTitle(getTitle());
+        fmd.setColumnVariableStored(getColumnVariableStored());
         fmd.setLabel( getLabel() );
         fmd.setRestricted( isRestricted() );
         
@@ -266,6 +273,60 @@ public class FileMetadata implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Map<String, String> getColumnVariableOptions() {
+        Map<String, String> tabularViariables =  new HashMap<String, String>();
+
+        if (dataFile.getContentType() != null
+                && dataFile.getContentType().equals("text/tab-separated-values")
+                && dataFile.isTabularData()
+                && dataFile.getDataTable() != null) {
+
+            List<DataVariable> dataVariables = dataFile.getDataTable().getDataVariables();
+            for (DataVariable dataVariable : dataVariables) {
+                tabularViariables.put(dataVariable.getName(), dataVariable.getName());
+            }
+
+            return tabularViariables;
+        } else {
+            return new HashMap<String, String>(1);
+        }
+    }
+
+    public String[] getColumnVariables() {
+        if (columnVariableStored != null) {
+            String[] parts = columnVariableStored.split(";");
+            columnVariables = new String[parts.length];
+    
+            for(int i=0; i < parts.length; i++) {
+                columnVariables[i] = parts[i];
+            }
+        }
+
+        return columnVariables;
+    }
+
+    public void setColumnVariables(String[] columnVariables) {    
+        columnVariableStored = "";
+        
+        if (columnVariables.length > 1) {
+            columnVariableStored = columnVariables[0];
+
+            for(int i = 1; i < columnVariables.length; i++) {
+                columnVariableStored += ";" + columnVariables[i];
+            }
+        }
+
+        this.columnVariables = columnVariables;
+    }
+
+    public String getColumnVariableStored() {
+        return columnVariableStored;
+    }
+
+    public void setColumnVariableStored(String columnVariableStored) {
+        this.columnVariableStored = columnVariableStored;
     }
 
     public boolean isUrlFile() {

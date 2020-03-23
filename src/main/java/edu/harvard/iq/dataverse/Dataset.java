@@ -334,6 +334,7 @@ public class Dataset extends DvObjectContainer {
                 newFm.setFileType(fm.getFileType());
                 newFm.setFileTypeSubcategory(fm.getFileTypeSubcategory());
                 newFm.setTitle(fm.getTitle());
+                newFm.setColumnVariableStored(fm.getColumnVariableStored());
                 newFm.setLabel(fm.getLabel());
                 newFm.setDirectoryLabel(fm.getDirectoryLabel());
                 newFm.setRestricted(fm.isRestricted());
