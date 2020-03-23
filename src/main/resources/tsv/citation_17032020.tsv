@@ -1,0 +1,96 @@
+#metadataBlock	name	dataverseAlias	displayName	blockURI												
+#datasetField	name	title	description	watermark	 fieldType	displayOrder	displayFormat	advancedSearchField	allowControlledVocabulary	allowmultiples	facetable	displayoncreate	required	parent	metadatablock_id	termURI
+#controlledVocabulary	DatasetField	Value	identifier	displayOrder												
+	topicTaxon	DEMOGRAPHY (POPULATION, VITAL STATISTICS, AND CENSUSES)	Demography	103												
+	topicTaxon	Censuses	Censuses	104												
+	topicTaxon	Migration	Demography.Migration	105												
+	topicTaxon	Morbidity and mortality	Demography.MorbidityAndMortality	106												
+	topicTaxon	ECONOMICS	Economics	107												
+	topicTaxon	Consumption and consumer behaviour	Economics.ConsumptionAndConsumerBehaviour	108												
+	topicTaxon	Economic conditions and indicators	Economics.EconomicConditionsAndIndicators	109												
+	topicTaxon	Economic policy, public expenditure and revenue	Economic.Policy.Public.ExpenditureAndRevenue	110												
+	topicTaxon	Economic systems and development	Economics.EconomicSystemsAndDevelopment	111												
+	topicTaxon	Income, property and investment/saving	Income.PropertyAndInvestmentOrSaving	112												
+	topicTaxon	EDUCATION	Education	113												
+	topicTaxon	Compulsory and pre-school education	Education.CompulsoryAndPreschoolEducation	114												
+	topicTaxon	Educational policy	Education.EducationalPolicy	115												
+	topicTaxon	Higher and further education	Education.HigherAndFurtherEducation	116												
+	topicTaxon	Life-long/continuing education	Education.LifelongContinuingEducation	117												
+	topicTaxon	Vocational education and training	Education.VocationalEducationAndTraining	118												
+	topicTaxon	HEALTH	Health	119												
+	topicTaxon	Diet and nutrition	Health.DietAndNutrition	120												
+	topicTaxon	General health and well-being	Health.GeneralHealthAndWellbeing	121												
+	topicTaxon	Health care services and policies	Health.HealthCareServicesAndPolicies	122												
+	topicTaxon	Medication and treatment	Health.MedicationAndTreatment	123												
+	topicTaxon	Occupational health	Health.OccupationalHealth	124												
+	topicTaxon	Physical fitness and exercise	Health.PhysicalFitnessAndExercise	125												
+	topicTaxon	Public health	Health.PublicHealth	126												
+	topicTaxon	Reproductive health	Health.ReproductiveHealth	127												
+	topicTaxon	Signs and symptoms; pathological conditions	Health.SignsAndSymptomsPathologicalConditions	128												
+	topicTaxon	Specific diseases, disorders and medical conditions	Health.SpecificDiseasesDisordersAndMedicalConditions	129												
+	topicTaxon	Wounds and injuries	Health.WoundsAndInjuries	130												
+	topicTaxon	HISTORY	History	131												
+	topicTaxon	HOUSING AND LAND USE	HousingAndLandUse	132												
+	topicTaxon	Housing	HousingAndLandUse.Housing	133												
+	topicTaxon	Land use and planning	HousingAndLandUse.LandUseAndPlanning	134												
+	topicTaxon	LABOUR AND EMPLOYMENT	LabourAndEmployment	135												
+	topicTaxon	Employee training	LabourAndEmployment.EmployeeTraining	136												
+	topicTaxon	Employment	LabourAndEmployment.Employment	137												
+	topicTaxon	Labour and employment policy	LabourAndEmployment.LabourAndEmploymentPolicy	138												
+	topicTaxon	Labour relations/conflict	LabourAndEmployment.LabourRelationsConflict	139												
+	topicTaxon	Retirement	LabourAndEmployment.Retirement	140												
+	topicTaxon	Unemployment	LabourAndEmployment.Unemployment	141												
+	topicTaxon	Working conditions	LabourAndEmployment.WorkingConditions	142												
+	topicTaxon	LAW, CRIME AND LEGAL SYSTEMS	LawCrimeAndLegalSystems	143												
+	topicTaxon	Crime and law enforcement	LawCrimeAndLegalSystems.CrimeAndLawEnforcement	144												
+	topicTaxon	Legislation and legal systems	LawCrimeAndLegalSystems.LegislationAndLegalSystems	145												
+	topicTaxon	MEDIA, COMMUNICATION AND LANGUAGE	MediaCommunicationAndLanguage	146												
+	topicTaxon	Information society	MediaCommunicationAndLanguage.InformationSociety	147												
+	topicTaxon	Language and linguistics	MediaCommunicationAndLanguage.LanguageAndLinguistics	148												
+	topicTaxon	Media	MediaCommunicationAndLanguage.Media	149												
+	topicTaxon	Public relations	MediaCommunicationAndLanguage.PublicRelations	150												
+	topicTaxon	NATURAL ENVIRONMENT	NaturalEnvironment	151												
+	topicTaxon	Energy and natural resources	NaturalEnvironment.EnergyAndNaturalResources	152												
+	topicTaxon	Environment and conservation	NaturalEnvironment.EnvironmentAndConservation	153												
+	topicTaxon	Natural landscapes	NaturalEnvironment.NaturalLandscapes	154												
+	topicTaxon	Plants and animals	NaturalEnvironment.PlantsAndAnimals	155												
+	topicTaxon	POLITICS	Politics	156												
+	topicTaxon	Conflict, security and peace	Politics.ConflictSecurityAndPeace	157												
+	topicTaxon	Elections	Politics.Elections	158												
+	topicTaxon	International politics and organisations	Politics.InternationalPoliticsAndOrganisations	159												
+	topicTaxon	Political behaviour and attitudes	Politics.PoliticalBehaviourAndAttitudes	160												
+	topicTaxon	Political ideology	Politics.PoliticalIdeology	161												
+	topicTaxon	PSYCHOLOGY	Psychology	162												
+	topicTaxon	SCIENCE AND TECHNOLOGY	ScienceAndTechnology	163												
+	topicTaxon	Biotechnology	ScienceAndTechnology.Biotechnology	164												
+	topicTaxon	Information technology	ScienceAndTechnology.InformationTechnology	165												
+	topicTaxon	SOCIAL STRATIFICATION AND GROUPINGS	SocialStratificationAndGroupings	166												
+	topicTaxon	Children	SocialStratificationAndGroupings.Children	167												
+	topicTaxon	Elderly	SocialStratificationAndGroupings.Elderly	168												
+	topicTaxon	Elites and leadership	SocialStratificationAndGroupings.ElitesAndLeadership	169												
+	topicTaxon	Equality, inequality and social exclusion	SocialStratificationAndGroupings.EqualityInequalityAndSocialExclusion	170												
+	topicTaxon	Family life and marriage	SocialStratificationAndGroupings.FamilyLifeAndMarriage	171												
+	topicTaxon	Gender and gender roles	SocialStratificationAndGroupings.GenderAndGenderRoles	172												
+	topicTaxon	Minorities	SocialStratificationAndGroupings.Minorities	173												
+	topicTaxon	Social and occupational mobility	SocialStratificationAndGroupings.SocialAndOccupationalMobility	174												
+	topicTaxon	Youth	SocialStratificationAndGroupings.Youth	175												
+	topicTaxon	SOCIAL WELFARE POLICY AND SYSTEMS	SocialWelfarePolicyAndSystems	176												
+	topicTaxon	Social welfare policy	SocialWelfarePolicyAndSystems.SocialWelfarePolicy	177												
+	topicTaxon	Social welfare systems/structures	SocialWelfarePolicyAndSystems.SocialWelfareSystemsStructures	178												
+	topicTaxon	Specific social services: use and availability	SocialWelfarePolicyAndSystems.SpecificSocialServicesUseAndAvailability	179												
+	topicTaxon	SOCIETY AND CULTURE	SocietyAndCulture	180												
+	topicTaxon	Community, urban and rural life	SocietyAndCulture.CommunityUrbanAndRuralLife	181												
+	topicTaxon	Cultural activities and participation	SocietyAndCulture.CulturalActivitiesAndParticipation	182												
+	topicTaxon	Cultural and national identity	SocietyAndCulture.CulturalAndNationalIdentity	183												
+	topicTaxon	Leisure, tourism and sport	SocietyAndCulture.LeisureTourismAndSport	184												
+	topicTaxon	Religion and values	SocietyAndCulture.ReligionAndValues	185												
+	topicTaxon	Social behaviour and attitudes	SocietyAndCulture.SocialBehaviourAndAttitudes	186												
+	topicTaxon	Social change	SocietyAndCulture.SocialChange	187												
+	topicTaxon	Social conditions and indicators	SocietyAndCulture.SocialConditionsAndIndicators	188												
+	topicTaxon	Time use	SocietyAndCulture.TimeUse	189												
+	topicTaxon	TRADE, INDUSTRY AND MARKETS	TradeIndustryAndMarkets	190												
+	topicTaxon	Agriculture and rural industry	TradeIndustryAndMarkets.AgricultureAndRuralIndustry	191												
+	topicTaxon	Business/industrial management and organisation	TradeIndustryAndMarkets.BusinessIndustrialManagementAndOrganisation	192												
+	topicTaxon	Foreign trade	TradeIndustryAndMarkets.ForeignTrade	193												
+	topicTaxon	TRANSPORT AND TRAVEL	TransportAndTravel	194												
+	topicTaxon	OTHER	Other	195												
