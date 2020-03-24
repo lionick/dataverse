@@ -285,7 +285,8 @@ public class FileMetadata implements Serializable {
 
             List<DataVariable> dataVariables = dataFile.getDataTable().getDataVariables();
             for (DataVariable dataVariable : dataVariables) {
-                tabularViariables.put(dataVariable.getName(), dataVariable.getName());
+                tabularViariables.put(dataVariable.getName(), dataVariable.getLabel() + " (" +
+                dataVariable.getName() + ")");
             }
 
             return tabularViariables;
