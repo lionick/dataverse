@@ -16,6 +16,8 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.faces.model.SelectItem;
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.persistence.Column;
@@ -275,8 +277,8 @@ public class FileMetadata implements Serializable {
         this.title = title;
     }
 
-    public Map<String, String> getColumnVariableOptions() {
-        Map<String, String> tabularViariables =  new HashMap<String, String>();
+    public List<SelectItem> getColumnVariableOptions() {
+        List<SelectItem> tabularViariables = new ArrayList<>();
 
         if (dataFile.getContentType() != null
                 && dataFile.getContentType().equals("text/tab-separated-values")
@@ -285,14 +287,13 @@ public class FileMetadata implements Serializable {
 
             List<DataVariable> dataVariables = dataFile.getDataTable().getDataVariables();
             for (DataVariable dataVariable : dataVariables) {
-                tabularViariables.put(dataVariable.getName(), dataVariable.getLabel() + " (" +
-                dataVariable.getName() + ")");
+                tabularViariables.add(new SelectItem(dataVariable.getName(), dataVariable.getLabel() +
+                " (" + dataVariable.getName() + ")"));
             }
 
-            return tabularViariables;
-        } else {
-            return new HashMap<String, String>(1);
         }
+        
+        return tabularViariables;
     }
 
     public String[] getColumnVariables() {
@@ -311,7 +312,7 @@ public class FileMetadata implements Serializable {
     public void setColumnVariables(String[] columnVariables) {    
         columnVariableStored = "";
         
-        if (columnVariables.length > 1) {
+        if (columnVariables.length >= 1) {
             columnVariableStored = columnVariables[0];
 
             for(int i = 1; i < columnVariables.length; i++) {
