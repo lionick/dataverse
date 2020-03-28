@@ -524,11 +524,24 @@
 
                     <!-- Column, Row and Value variables -->
                     <div jsf:rendered="#{fileMetadata.dataFile.tabularData}">
-                        <h:outputLabel for="columnVariables" value="Column:" />
-                        <p:selectCheckboxMenu id="columnVariables" value="#{fileMetadata.columnVariables}" label="Variables" multiple="true"
-                                            filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
-                            <f:selectItems value="#{fileMetadata.getColumnVariableOptions()}" />
-                        </p:selectCheckboxMenu>
+                        <div>
+                            <h:outputLabel for="columnVariables" value="#{bundle['file.fileColumnVariable']}" />
+                            <div>
+                                <p:selectCheckboxMenu id="columnVariables" value="#{fileMetadata.columnVariables}" label="Variables" multiple="true"
+                                                    filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                                    <f:selectItems value="#{fileMetadata.getTabularVariables()}" />
+                                </p:selectCheckboxMenu>
+                            </div>
+                        </div>
+                        <div>
+                            <h:outputLabel for="rowVariables" value="#{bundle['file.fileRowVariable']}" />
+                            <div>
+                                <p:selectCheckboxMenu id="rowVariables" value="#{fileMetadata.rowVariables}" label="Variables" multiple="true"
+                                                    filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                                    <f:selectItems value="#{fileMetadata.getTabularVariables()}" />
+                                </p:selectCheckboxMenu>
+                            </div>
+                        </div>
                     </div>
                         
                     </p:column>

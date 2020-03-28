@@ -104,6 +104,12 @@ public class FileMetadata implements Serializable {
 
     @Transient
     private String[] columnVariables;
+
+    @Expose
+    private String rowVariableStored;
+
+    @Transient
+    private String[] rowVariables;
     
     /**
      * At the FileMetadata level, "restricted" is a historical indication of the
@@ -153,6 +159,7 @@ public class FileMetadata implements Serializable {
         fmd.setFileTypeSubcategory(getFileTypeSubcategory());
         fmd.setTitle(getTitle());
         fmd.setColumnVariableStored(getColumnVariableStored());
+        fmd.setRowVariableStored(getRowVariableStored());
         fmd.setLabel( getLabel() );
         fmd.setRestricted( isRestricted() );
         
@@ -277,7 +284,7 @@ public class FileMetadata implements Serializable {
         this.title = title;
     }
 
-    public List<SelectItem> getColumnVariableOptions() {
+    public List<SelectItem> getTabularVariables() {
         List<SelectItem> tabularViariables = new ArrayList<>();
 
         if (dataFile.getContentType() != null
@@ -329,6 +336,41 @@ public class FileMetadata implements Serializable {
 
     public void setColumnVariableStored(String columnVariableStored) {
         this.columnVariableStored = columnVariableStored;
+    }
+
+    public String[] getRowVariables() {
+        if (rowVariableStored != null) {
+            String[] parts = rowVariableStored.split(";");
+            rowVariables = new String[parts.length];
+    
+            for(int i=0; i < parts.length; i++) {
+                rowVariables[i] = parts[i];
+            }
+        }
+
+        return rowVariables;
+    }
+
+    public void setRowVariables(String[] rowVariables) {    
+        rowVariableStored = "";
+        
+        if (rowVariables.length >= 1) {
+            rowVariableStored = rowVariables[0];
+
+            for(int i = 1; i < rowVariables.length; i++) {
+                rowVariableStored += ";" + rowVariables[i];
+            }
+        }
+
+        this.rowVariables = rowVariables;
+    }
+
+    public String getRowVariableStored() {
+        return rowVariableStored;
+    }
+
+    public void setRowVariableStored(String rowVariableStored) {
+        this.rowVariableStored = rowVariableStored;
     }
 
     public boolean isUrlFile() {
