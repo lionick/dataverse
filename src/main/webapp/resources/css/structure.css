@@ -705,7 +705,7 @@ div[id$="filesHeaderCount"] span.highlightBold {display:block; padding:0; line-h
 
 
 
-div[id$="filesTable"] .col-file-metadata {padding-left:0; padding-right:0; border-left:0; border-right:0; text-align:left; font-weight:normal;}
+div[id$="filesTable"] .col-file-metadata {padding-left:0; padding-right:0; border-left:0; border-right:0; text-align:left; font-weight:normal; width:700px;}
 
 
 
@@ -919,3 +919,12 @@ div.ui-widget-overlay {background:#ccc; opacity:.6;}
 #navbarFixed{
   background: black !important;
 }
+
+.ui-selectcheckboxmenu {
+    width:480px !important;
+}
+    
+div.ui-selectcheckboxmenu-panel {
+    width: 480px !important;
+}
+    

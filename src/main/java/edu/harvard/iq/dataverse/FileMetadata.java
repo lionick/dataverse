@@ -110,6 +110,12 @@ public class FileMetadata implements Serializable {
 
     @Transient
     private String[] rowVariables;
+
+    @Expose
+    private String valueVariableStored;
+
+    @Transient
+    private String[] valueVariables;
     
     /**
      * At the FileMetadata level, "restricted" is a historical indication of the
@@ -160,6 +166,7 @@ public class FileMetadata implements Serializable {
         fmd.setTitle(getTitle());
         fmd.setColumnVariableStored(getColumnVariableStored());
         fmd.setRowVariableStored(getRowVariableStored());
+        fmd.setValueVariableStored(getValueVariableStored());
         fmd.setLabel( getLabel() );
         fmd.setRestricted( isRestricted() );
         
@@ -316,10 +323,11 @@ public class FileMetadata implements Serializable {
         return columnVariables;
     }
 
-    public void setColumnVariables(String[] columnVariables) {    
-        columnVariableStored = "";
+    public void setColumnVariables(String[] columnVariables) {
+        columnVariableStored = null;
         
         if (columnVariables.length >= 1) {
+            columnVariableStored = "";
             columnVariableStored = columnVariables[0];
 
             for(int i = 1; i < columnVariables.length; i++) {
@@ -351,10 +359,11 @@ public class FileMetadata implements Serializable {
         return rowVariables;
     }
 
-    public void setRowVariables(String[] rowVariables) {    
-        rowVariableStored = "";
+    public void setRowVariables(String[] rowVariables) {
+        rowVariableStored = null;
         
         if (rowVariables.length >= 1) {
+            rowVariableStored = "";
             rowVariableStored = rowVariables[0];
 
             for(int i = 1; i < rowVariables.length; i++) {
@@ -371,6 +380,42 @@ public class FileMetadata implements Serializable {
 
     public void setRowVariableStored(String rowVariableStored) {
         this.rowVariableStored = rowVariableStored;
+    }
+
+    public String[] getValueVariables() {
+        if (valueVariableStored != null) {
+            String[] parts = valueVariableStored.split(";");
+            valueVariables = new String[parts.length];
+    
+            for(int i=0; i < parts.length; i++) {
+                valueVariables[i] = parts[i];
+            }
+        }
+
+        return valueVariables;
+    }
+
+    public void setValueVariables(String[] valueVariables) {
+        valueVariableStored = null;
+        
+        if (valueVariables.length >= 1) {
+            valueVariableStored = "";
+            valueVariableStored = valueVariables[0];
+
+            for(int i = 1; i < valueVariables.length; i++) {
+                valueVariableStored += ";" + valueVariables[i];
+            }
+        }
+
+        this.valueVariables = valueVariables;
+    }
+
+    public String getValueVariableStored() {
+        return valueVariableStored;
+    }
+
+    public void setValueVariableStored(String valueVariableStored) {
+        this.valueVariableStored = valueVariableStored;
     }
 
     public boolean isUrlFile() {

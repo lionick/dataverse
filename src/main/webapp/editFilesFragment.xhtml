@@ -508,6 +508,12 @@
                         PF("fileType1Options3").selectValue('');
                         $(".subcategory3Wrapper").hide();
                       }
+
+                      if ($(".categoryMenu" ).val() == 'Tabular Data'){
+                        $(".cubeVariablesWrapper").show();
+                      }else{
+                        $(".cubeVariablesWrapper").hide();
+                      }
                     });
                     $( ".subcategory1" ).change(function() {
                       var value = PF("fileType1Options1").getSelectedValue();
@@ -523,7 +529,7 @@
                     </script>
 
                     <!-- Column, Row and Value variables -->
-                    <div jsf:rendered="#{fileMetadata.dataFile.tabularData}">
+                    <div class="cubeVariablesWrapper">
                         <div>
                             <h:outputLabel for="columnVariables" value="#{bundle['file.fileColumnVariable']}" />
                             <div>
@@ -537,6 +543,15 @@
                             <h:outputLabel for="rowVariables" value="#{bundle['file.fileRowVariable']}" />
                             <div>
                                 <p:selectCheckboxMenu id="rowVariables" value="#{fileMetadata.rowVariables}" label="Variables" multiple="true"
+                                                    filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                                    <f:selectItems value="#{fileMetadata.getTabularVariables()}" />
+                                </p:selectCheckboxMenu>
+                            </div>
+                        </div>
+                        <div>
+                            <h:outputLabel for="valueVariables" value="#{bundle['file.fileValueVariable']}" />
+                            <div>
+                                <p:selectCheckboxMenu id="valueVariables" value="#{fileMetadata.valueVariables}" label="Variables" multiple="true"
                                                     filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
                                     <f:selectItems value="#{fileMetadata.getTabularVariables()}" />
                                 </p:selectCheckboxMenu>
@@ -1046,6 +1061,12 @@
         }else{
           $(".subcategory1Wrapper").hide();
           $(".subcategory3Wrapper").hide();
+        }
+
+        if ($(".categoryMenu" ).val() == 'Tabular Data'){
+            $(".cubeVariablesWrapper").show();
+        }else{
+            $(".cubeVariablesWrapper").hide();
         }
         
         $( ".datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' });

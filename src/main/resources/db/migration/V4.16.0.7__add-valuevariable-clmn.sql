@@ -1,0 +1,2 @@
+ALTER TABLE filemetadata
+ADD COLUMN valueVariableStored CHARACTER VARYING(2000);
