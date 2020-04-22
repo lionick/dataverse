@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:pt="http://java.sun.com/jsf/passthrough"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:iqbs="http://xmlns.jcp.org/jsf/composite/iqbs">
+    <h:head>
+    </h:head>
+     
+    <h:body>
+      <f:metadata>
+        <f:viewAction action="#{dataverseSession.updateLocaleInViewRoot}"/>
+				<f:viewParam name="fileId" value="#{StatisticsRPage.fileId}"/>
+				<f:viewAction action="#{StatisticsRPage.init}" />	
+				<f:viewAction action="#{dataverseHeaderFragment.initBreadcrumbsForFileMetadata(StatisticsRPage.file,'Statistics')}"/>
+      </f:metadata>
+      
+		<ui:composition template="/dataverse_template.xhtml">
+			<ui:param name="pageTitle" value="#{StatisticsRPage.fileMetadata.dataFile.displayName} - #{StatisticsRPage.file.owner.owner.displayName}"/>
+	
+        <ui:define name="body">
+          <h:form id="statisticsRForm">
+			<!-- Title/Label -->
+      <div class="cubeVariablesWrapper">
+        <div>
+          <h:outputLabel for="variable1" value="#{bundle['file.fileColumnVariable']}" />
+          <div>
+              <p:selectOneMenu filter="true" filterMatchMode="startsWith" id="variable1" value="#{StatisticsRPage.variable1}"  style="width:250px">
+                <p:ajax process="@this" listener="#{StatisticsRPage.onVariableChange}" update="selectedItemText"/>
+                                  <f:selectItem itemLabel="Select Variable" itemValue="" noSelectionOption="true" />
+                                  <f:selectItems var="variable1" value="#{StatisticsRPage.fileMetadata.getTabularVariables()}" />
+                 
+              </p:selectOneMenu>
+              
+              
+              <p:dataTable id="selectedItemText" value="#{StatisticsRPage.sum.entrySet().toArray()}" var="entry" widgetVar="userTable">
+              <p:column style="width:60px" class="text-center" headerText="Category">
+                            <h:outputText value="#{entry.key}" />
+                        </p:column>
+                        <p:column style="width:60px" class="text-center" headerText="Values">
+                            <h:outputText value="#{entry.value}" />
+                        </p:column>
+              
+                      </p:dataTable>  
+          </div>
+          
+        </div>
+      </div>
+</h:form>
+
+	        
+        </ui:define>
+        </ui:composition>
+   </h:body>
+</html>

@@ -452,7 +452,7 @@ public class XLSXFileReader extends TabularDataFileReader {
                             throw new SAXException("Could not establish variable name for column "+i);
                         }
                         
-                        varName = varName.replaceAll("[ _\t\n\r]", "");
+                        varName = varName.replaceAll("[ \t\n\r]", "");//remove _ why to be here?
                         
                         DataVariable dv = new DataVariable(i, dataTable);
                         dv.setName(varName);
