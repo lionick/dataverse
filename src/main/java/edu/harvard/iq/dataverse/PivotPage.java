@@ -53,7 +53,6 @@ public class PivotPage implements java.io.Serializable {
     private DataFile file;
     private int selectedTabIndex;
     private Dataset editDataset;
-    private Dataset dataset;
     private List<DatasetVersion> datasetVersionsForTab;
     private List<FileMetadata> fileMetadatasForTab;
     private String persistentId;
@@ -161,7 +160,7 @@ public class PivotPage implements java.io.Serializable {
             try {
                 StorageIO directStorageAccess = DataAccess.getDirectStorageIO(folderPathString);// get the full path
                                                                                                 // without filename
-                if (file.getDataTable().getOriginalFileFormat().equals("application/x-spss-sav")) {
+                if (file.getDataTable().getOriginalFileFormat().equals("application/x-spss-sav") || file.getDataTable().getOriginalFileFormat().equals("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")) {
                     String folderSystemPath = System.getProperty("dataverse.files.directory") + File.separator
                             + directStorageAccess.getFileSystemPath().toString();
 
@@ -177,7 +176,7 @@ public class PivotPage implements java.io.Serializable {
                     }
                     // if it doesnt exist then create it
                     else {
-                        rconvertService.convertFile(folderSystemPath, file.getStorageIdentifier());
+                        rconvertService.convertFileToCsv(folderSystemPath, file.getStorageIdentifier(), file.getDataTable().getOriginalFileFormat());
                         // we have put it on temp directory - now we have to copy it to the appropriate
                         // folder
                         // TODO tmp Folder from properties
@@ -292,9 +291,13 @@ public class PivotPage implements java.io.Serializable {
 
     public String transformVariables(String[] variables) {
         String tempVar = "[";
+        if(variables!=null){
         for (int i = 0; i < variables.length; i++)
             tempVar += "\"" + variables[i] + "\",";
         tempVar = tempVar.subSequence(0, tempVar.length() - 1).toString() + "]";
+        }
+        else
+            tempVar += "]";
         return tempVar;
     }
 

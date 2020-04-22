@@ -34,7 +34,7 @@
 				            skipEmptyLines: true,
 				            complete: function(parsed){
 				                $("#output").pivotUI(parsed.data, {
-				                    rows: #{PivotPage.rowVariables}, cols: #{PivotPage.colVariables},vals: #{PivotPage.valVariables},
+				                    rows: "#{PivotPage.rowVariables}", cols: "#{PivotPage.colVariables}",vals: "#{PivotPage.valVariables}",
 									aggregatorName: "Sum",
 									renderName: "Table",
 									renderers: $.extend(
